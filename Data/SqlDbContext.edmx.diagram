@@ -13,6 +13,7 @@
         <AssociationConnector Association="RATModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" />
         <AssociationConnector Association="RATModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="RATModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="RATModel.TestUploadImage" Width="1.5" PointX="3.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

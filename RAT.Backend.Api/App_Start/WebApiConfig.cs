@@ -16,6 +16,12 @@ namespace RAT.Backend.Api
               routeTemplate: "customer-api/{action}/{id}",
               defaults: new { controller = "Customer", action = "Get", id = RouteParameter.Optional }
           );
+            
+            config.Routes.MapHttpRoute(
+              name: "UploadImage",
+              routeTemplate: "upload-api/{action}/{id}",
+              defaults: new { controller = "UploadImage", action = "Get", id = RouteParameter.Optional }
+          );
          
             // Web API routes
             config.MapHttpAttributeRoutes();

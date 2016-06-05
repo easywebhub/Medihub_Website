@@ -200,3 +200,4 @@ C:\Code\Reseach\GRoupRAT\rat\RAT.Backend.Api\bin\Ninject.Web.Common.pdb
 C:\Code\Reseach\GRoupRAT\rat\RAT.Backend.Api\bin\Ninject.Web.Common.xml
 C:\Code\Reseach\GRoupRAT\rat\RAT.Backend.Api\bin\RAT.Commons.dll
 C:\Code\Reseach\GRoupRAT\rat\RAT.Backend.Api\bin\RAT.Commons.pdb
+C:\Code\Reseach\GRoupRAT\rat\RAT.Backend.Api\bin\Microsoft.Practices.ServiceLocation.dll

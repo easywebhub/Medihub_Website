@@ -91,6 +91,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SqlDbContext.edmx</DependentUpon>
     </Compile>
+    <Compile Include="TestUploadImage.cs">
+      <DependentUpon>SqlDbContext.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="SqlDbContext.edmx">
