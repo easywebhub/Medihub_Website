@@ -10,25 +10,25 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace RAT.Backend.Api.DAL
 {
-    public class UnitOfWorkMSSQL : IUnitOfWorkSql
+    public class UnitOfWorkMssql : IUnitOfWorkSql
     {
-        private readonly SqlDbContext contextSql;
+        private readonly SqlDbContext _contextSql;
    
         private Dictionary<string, dynamic> _repositories;
 
-        public UnitOfWorkMSSQL(SqlDbContext context)
+        public UnitOfWorkMssql(SqlDbContext context)
         {
             if (context == null) context = new SqlDbContext();
            
-            this.contextSql = context;
+            this._contextSql = context;
            
         }
         public SqlDbContext GetDbContext()
         {
-            return contextSql;
+            return _contextSql;
         }
 
-        
+       
 
         public GenericSqlRepository<TEntity> Repository<TEntity>() where TEntity : class
         {
@@ -48,14 +48,14 @@ namespace RAT.Backend.Api.DAL
                 return (GenericSqlRepository<TEntity>)_repositories[type];
             }
 
-            _repositories.Add(type, new GenericSqlRepository<TEntity>(contextSql));
+            _repositories.Add(type, new GenericSqlRepository<TEntity>(_contextSql));
 
 
             return _repositories[type];
         }
         public void Save()
         {
-            contextSql.SaveChanges();
+            _contextSql.SaveChanges();
         }
 
         private bool disposedSql = false;
@@ -67,7 +67,7 @@ namespace RAT.Backend.Api.DAL
             {
                 if (disposing)
                 {
-                    contextSql.Dispose();
+                    _contextSql.Dispose();
                 }
             }
             this.disposedSql = true;

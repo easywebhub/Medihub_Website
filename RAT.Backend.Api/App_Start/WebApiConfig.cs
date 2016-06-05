@@ -11,6 +11,12 @@ namespace RAT.Backend.Api
         {
             // Web API configuration and services
 
+            config.Routes.MapHttpRoute(
+              name: "Customer",
+              routeTemplate: "customer-api/{action}/{id}",
+              defaults: new { controller = "Customer", action = "Get", id = RouteParameter.Optional }
+          );
+         
             // Web API routes
             config.MapHttpAttributeRoutes();
 

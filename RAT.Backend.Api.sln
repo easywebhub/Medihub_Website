@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAT.Backend.Api", "RAT.Back
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{30B17875-42F8-4381-8713-C40BE67C94CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAT.Commons", "RAT.Commons\RAT.Commons.csproj", "{B4418403-5FC4-4E2D-9F35-242EA7A20840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{30B17875-42F8-4381-8713-C40BE67C94CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30B17875-42F8-4381-8713-C40BE67C94CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30B17875-42F8-4381-8713-C40BE67C94CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4418403-5FC4-4E2D-9F35-242EA7A20840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4418403-5FC4-4E2D-9F35-242EA7A20840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4418403-5FC4-4E2D-9F35-242EA7A20840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4418403-5FC4-4E2D-9F35-242EA7A20840}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
