@@ -12,18 +12,17 @@ namespace Data
     using System;
     using System.Collections.Generic;
     
-    public partial class KH_Customer
+    public partial class DM_Brand
     {
-        public KH_Customer()
+        public DM_Brand()
         {
             this.KH_Campaign = new HashSet<KH_Campaign>();
         }
     
         public int Id { get; set; }
-        public string CustomerName { get; set; }
-        public string CustomerCode { get; set; }
-        public string Phone { get; set; }
+        public string Name { get; set; }
         public string Note { get; set; }
+        public System.DateTime CreatedDate { get; set; }
     
         public virtual ICollection<KH_Campaign> KH_Campaign { get; set; }
     }

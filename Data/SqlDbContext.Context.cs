@@ -31,5 +31,13 @@ namespace Data
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<KH_Customer> KH_Customer { get; set; }
         public virtual DbSet<TestUploadImage> TestUploadImages { get; set; }
+        public virtual DbSet<DM_Brand> DM_Brand { get; set; }
+        public virtual DbSet<DM_Categories> DM_Categories { get; set; }
+        public virtual DbSet<DM_CommonData> DM_CommonData { get; set; }
+        public virtual DbSet<DM_DrugStore> DM_DrugStore { get; set; }
+        public virtual DbSet<KH_Campaign> KH_Campaign { get; set; }
+        public virtual DbSet<Log> Logs { get; set; }
+        public virtual DbSet<Map_Campaign_Drug> Map_Campaign_Drug { get; set; }
+        public virtual DbSet<Map_Categories_Project> Map_Categories_Project { get; set; }
     }
 }

@@ -72,7 +72,31 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>SqlDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="DM_Brand.cs">
+      <DependentUpon>SqlDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_Categories.cs">
+      <DependentUpon>SqlDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_CommonData.cs">
+      <DependentUpon>SqlDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DM_DrugStore.cs">
+      <DependentUpon>SqlDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KH_Campaign.cs">
+      <DependentUpon>SqlDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="KH_Customer.cs">
+      <DependentUpon>SqlDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>SqlDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Map_Campaign_Drug.cs">
+      <DependentUpon>SqlDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Map_Categories_Project.cs">
       <DependentUpon>SqlDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

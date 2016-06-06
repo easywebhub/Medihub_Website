@@ -14,6 +14,18 @@
         <AssociationConnector Association="RATModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="RATModel.AspNetUserRoles" />
         <EntityTypeShape EntityType="RATModel.TestUploadImage" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="RATModel.DM_Brand" Width="1.5" PointX="4.125" PointY="9.875" />
+        <EntityTypeShape EntityType="RATModel.DM_Categories" Width="1.5" PointX="6.375" PointY="12" />
+        <EntityTypeShape EntityType="RATModel.DM_CommonData" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RATModel.DM_DrugStore" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="RATModel.KH_Campaign" Width="1.5" PointX="6.375" PointY="7.125" />
+        <EntityTypeShape EntityType="RATModel.Log" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="RATModel.Map_Campaign_Drug" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RATModel.Map_Categories_Project" Width="1.5" PointX="8.625" PointY="7.875" />
+        <AssociationConnector Association="RATModel.FK_KH_Campaign_DM_Brand" />
+        <AssociationConnector Association="RATModel.FK_DM_MapCategories_Project_DM_MapCategories_Project" />
+        <AssociationConnector Association="RATModel.FK_DM_MapCategories_Project_KH_Project" />
+        <AssociationConnector Association="RATModel.FK_KH_Project_KH_Customer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

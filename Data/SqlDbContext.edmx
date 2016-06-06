@@ -49,6 +49,69 @@
           <Property Name="SecurityStamp" Type="nvarchar(max)" />
           <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
+        <EntityType Name="DM_Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Note" Type="nchar" MaxLength="10" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DM_Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="DM_CommonData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="GroupName" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="DM_DrugStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="DrugType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Acreage" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="StreetId" Type="bigint" Nullable="false" />
+          <Property Name="WardName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DistrictName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Area" Type="nvarchar" MaxLength="50" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+          <Property Name="X" Type="float" Nullable="false" />
+          <Property Name="Y" Type="float" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsMarket" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KH_Campaign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="Partner" Type="nvarchar" MaxLength="200" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="BrandId" Type="int" />
+        </EntityType>
         <EntityType Name="KH_Customer">
           <Key>
             <PropertyRef Name="Id" />
@@ -58,6 +121,32 @@
           <Property Name="CustomerCode" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" />
           <Property Name="Note" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ErrorMessage" Type="nvarchar(max)" />
+          <Property Name="Result" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Map_Campaign_Drug">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DrugId" Type="bigint" Nullable="false" />
+          <Property Name="CampaignId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Map_Categories_Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategorieId" Type="int" />
+          <Property Name="ProjectId" Type="int" />
         </EntityType>
         <EntityType Name="TestUploadImage">
           <Key>
@@ -124,13 +213,69 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DM_MapCategories_Project_DM_MapCategories_Project">
+          <End Role="DM_Categories" Type="Self.DM_Categories" Multiplicity="0..1" />
+          <End Role="Map_Categories_Project" Type="Self.Map_Categories_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Map_Categories_Project">
+              <PropertyRef Name="CategorieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DM_MapCategories_Project_KH_Project">
+          <End Role="KH_Campaign" Type="Self.KH_Campaign" Multiplicity="0..1" />
+          <End Role="Map_Categories_Project" Type="Self.Map_Categories_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KH_Campaign">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Map_Categories_Project">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KH_Campaign_DM_Brand">
+          <End Role="DM_Brand" Type="Self.DM_Brand" Multiplicity="0..1" />
+          <End Role="KH_Campaign" Type="Self.KH_Campaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KH_Campaign">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KH_Project_KH_Customer">
+          <End Role="KH_Customer" Type="Self.KH_Customer" Multiplicity="1" />
+          <End Role="KH_Campaign" Type="Self.KH_Campaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KH_Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KH_Campaign">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="RATModelStoreContainer">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_Brand" EntityType="Self.DM_Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_Categories" EntityType="Self.DM_Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_CommonData" EntityType="Self.DM_CommonData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_DrugStore" EntityType="Self.DM_DrugStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KH_Campaign" EntityType="Self.KH_Campaign" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KH_Customer" EntityType="Self.KH_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Map_Campaign_Drug" EntityType="Self.Map_Campaign_Drug" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Map_Categories_Project" EntityType="Self.Map_Categories_Project" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TestUploadImage" EntityType="Self.TestUploadImage" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -147,6 +292,22 @@
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_MapCategories_Project_DM_MapCategories_Project" Association="Self.FK_DM_MapCategories_Project_DM_MapCategories_Project">
+            <End Role="DM_Categories" EntitySet="DM_Categories" />
+            <End Role="Map_Categories_Project" EntitySet="Map_Categories_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_MapCategories_Project_KH_Project" Association="Self.FK_DM_MapCategories_Project_KH_Project">
+            <End Role="KH_Campaign" EntitySet="KH_Campaign" />
+            <End Role="Map_Categories_Project" EntitySet="Map_Categories_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KH_Campaign_DM_Brand" Association="Self.FK_KH_Campaign_DM_Brand">
+            <End Role="DM_Brand" EntitySet="DM_Brand" />
+            <End Role="KH_Campaign" EntitySet="KH_Campaign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KH_Project_KH_Customer" Association="Self.FK_KH_Project_KH_Customer">
+            <End Role="KH_Customer" EntitySet="KH_Customer" />
+            <End Role="KH_Campaign" EntitySet="KH_Campaign" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -172,6 +333,30 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
           <EntitySet Name="TestUploadImages" EntityType="RATModel.TestUploadImage" />
+          <EntitySet Name="DM_Brand" EntityType="RATModel.DM_Brand" />
+          <EntitySet Name="DM_Categories" EntityType="RATModel.DM_Categories" />
+          <EntitySet Name="DM_CommonData" EntityType="RATModel.DM_CommonData" />
+          <EntitySet Name="DM_DrugStore" EntityType="RATModel.DM_DrugStore" />
+          <EntitySet Name="KH_Campaign" EntityType="RATModel.KH_Campaign" />
+          <EntitySet Name="Logs" EntityType="RATModel.Log" />
+          <EntitySet Name="Map_Campaign_Drug" EntityType="RATModel.Map_Campaign_Drug" />
+          <EntitySet Name="Map_Categories_Project" EntityType="RATModel.Map_Categories_Project" />
+          <AssociationSet Name="FK_KH_Campaign_DM_Brand" Association="RATModel.FK_KH_Campaign_DM_Brand">
+            <End Role="DM_Brand" EntitySet="DM_Brand" />
+            <End Role="KH_Campaign" EntitySet="KH_Campaign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_MapCategories_Project_DM_MapCategories_Project" Association="RATModel.FK_DM_MapCategories_Project_DM_MapCategories_Project">
+            <End Role="DM_Categories" EntitySet="DM_Categories" />
+            <End Role="Map_Categories_Project" EntitySet="Map_Categories_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DM_MapCategories_Project_KH_Project" Association="RATModel.FK_DM_MapCategories_Project_KH_Project">
+            <End Role="KH_Campaign" EntitySet="KH_Campaign" />
+            <End Role="Map_Categories_Project" EntitySet="Map_Categories_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KH_Project_KH_Customer" Association="RATModel.FK_KH_Project_KH_Customer">
+            <End Role="KH_Customer" EntitySet="KH_Customer" />
+            <End Role="KH_Campaign" EntitySet="KH_Campaign" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AspNetRole">
           <Key>
@@ -224,6 +409,7 @@
           <Property Name="CustomerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KH_Campaign" Relationship="RATModel.FK_KH_Project_KH_Customer" FromRole="KH_Customer" ToRole="KH_Campaign" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
           <End Type="RATModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -266,6 +452,150 @@
           <Property Name="UrlImage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="DM_Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="KH_Campaign" Relationship="RATModel.FK_KH_Campaign_DM_Brand" FromRole="DM_Brand" ToRole="KH_Campaign" />
+        </EntityType>
+        <EntityType Name="DM_Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Map_Categories_Project" Relationship="RATModel.FK_DM_MapCategories_Project_DM_MapCategories_Project" FromRole="DM_Categories" ToRole="Map_Categories_Project" />
+        </EntityType>
+        <EntityType Name="DM_CommonData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GroupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DM_DrugStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DrugType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Acreage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StreetId" Type="Int64" Nullable="false" />
+          <Property Name="WardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DistrictName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CityName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="X" Type="Double" Nullable="false" />
+          <Property Name="Y" Type="Double" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsMarket" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KH_Campaign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Partner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" />
+          <NavigationProperty Name="DM_Brand" Relationship="RATModel.FK_KH_Campaign_DM_Brand" FromRole="KH_Campaign" ToRole="DM_Brand" />
+          <NavigationProperty Name="Map_Categories_Project" Relationship="RATModel.FK_DM_MapCategories_Project_KH_Project" FromRole="KH_Campaign" ToRole="Map_Categories_Project" />
+          <NavigationProperty Name="KH_Customer" Relationship="RATModel.FK_KH_Project_KH_Customer" FromRole="KH_Campaign" ToRole="KH_Customer" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Map_Campaign_Drug">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DrugId" Type="Int64" Nullable="false" />
+          <Property Name="CampaignId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Map_Categories_Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategorieId" Type="Int32" />
+          <Property Name="ProjectId" Type="Int32" />
+          <NavigationProperty Name="DM_Categories" Relationship="RATModel.FK_DM_MapCategories_Project_DM_MapCategories_Project" FromRole="Map_Categories_Project" ToRole="DM_Categories" />
+          <NavigationProperty Name="KH_Campaign" Relationship="RATModel.FK_DM_MapCategories_Project_KH_Project" FromRole="Map_Categories_Project" ToRole="KH_Campaign" />
+        </EntityType>
+        <Association Name="FK_KH_Campaign_DM_Brand">
+          <End Type="RATModel.DM_Brand" Role="DM_Brand" Multiplicity="0..1" />
+          <End Type="RATModel.KH_Campaign" Role="KH_Campaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KH_Campaign">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DM_MapCategories_Project_DM_MapCategories_Project">
+          <End Type="RATModel.DM_Categories" Role="DM_Categories" Multiplicity="0..1" />
+          <End Type="RATModel.Map_Categories_Project" Role="Map_Categories_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Map_Categories_Project">
+              <PropertyRef Name="CategorieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DM_MapCategories_Project_KH_Project">
+          <End Type="RATModel.KH_Campaign" Role="KH_Campaign" Multiplicity="0..1" />
+          <End Type="RATModel.Map_Categories_Project" Role="Map_Categories_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KH_Campaign">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Map_Categories_Project">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KH_Project_KH_Customer">
+          <End Type="RATModel.KH_Customer" Role="KH_Customer" Multiplicity="1" />
+          <End Type="RATModel.KH_Campaign" Role="KH_Campaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KH_Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KH_Campaign">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -335,6 +665,103 @@
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="UrlImage" ColumnName="UrlImage" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_Brand">
+            <EntityTypeMapping TypeName="RATModel.DM_Brand">
+              <MappingFragment StoreEntitySet="DM_Brand">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_Categories">
+            <EntityTypeMapping TypeName="RATModel.DM_Categories">
+              <MappingFragment StoreEntitySet="DM_Categories">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_CommonData">
+            <EntityTypeMapping TypeName="RATModel.DM_CommonData">
+              <MappingFragment StoreEntitySet="DM_CommonData">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_DrugStore">
+            <EntityTypeMapping TypeName="RATModel.DM_DrugStore">
+              <MappingFragment StoreEntitySet="DM_DrugStore">
+                <ScalarProperty Name="IsMarket" ColumnName="IsMarket" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+                <ScalarProperty Name="WardName" ColumnName="WardName" />
+                <ScalarProperty Name="StreetId" ColumnName="StreetId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Acreage" ColumnName="Acreage" />
+                <ScalarProperty Name="DrugType" ColumnName="DrugType" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KH_Campaign">
+            <EntityTypeMapping TypeName="RATModel.KH_Campaign">
+              <MappingFragment StoreEntitySet="KH_Campaign">
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Partner" ColumnName="Partner" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="RATModel.Log">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Map_Campaign_Drug">
+            <EntityTypeMapping TypeName="RATModel.Map_Campaign_Drug">
+              <MappingFragment StoreEntitySet="Map_Campaign_Drug">
+                <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+                <ScalarProperty Name="DrugId" ColumnName="DrugId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Map_Categories_Project">
+            <EntityTypeMapping TypeName="RATModel.Map_Categories_Project">
+              <MappingFragment StoreEntitySet="Map_Categories_Project">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="CategorieId" ColumnName="CategorieId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
