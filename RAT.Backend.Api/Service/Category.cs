@@ -11,8 +11,8 @@ namespace RAT.Backend.Api.Service
     public interface ICategoryService 
     {
         IEnumerable<DM_Categories> GetCategorieses();
-     
-        DM_Categories GetCampaignbyId(long id);
+
+        DM_Categories GetCategorybyId(long id);
         bool UpdateDmCategory(DM_Categories model);
         IEnumerable<DM_Brand> GetBrands();
      
@@ -36,7 +36,7 @@ namespace RAT.Backend.Api.Service
 
 
 
-        public DM_Categories GetCampaignbyId(long id)
+        public DM_Categories GetCategorybyId(long id)
         {
            return _unitOfWork.Repository<DM_Categories>().GetByID(id);
         }
@@ -79,6 +79,6 @@ namespace RAT.Backend.Api.Service
               _unitOfWork.Save();
             return true;
         }
-    }
+    
     }
 }
