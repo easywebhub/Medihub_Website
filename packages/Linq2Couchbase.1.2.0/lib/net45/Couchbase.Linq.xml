@@ -1,0 +1,2255 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Couchbase.Linq</name>
+    </assembly>
+    <members>
+        <member name="M:Couchbase.Linq.Clauses.UseIndexClause.#ctor(System.String,Couchbase.Linq.N1QlIndexType)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Couchbase.Linq.Clauses.UseIndexClause" /> class.
+            </summary>
+            <param name="indexName">Name of the index to use.</param>
+            <param name="indexType">Type of the index to use.</param>
+        </member>
+        <member name="P:Couchbase.Linq.Clauses.UseIndexClause.IndexName">
+            <summary>
+                Name of the index to use.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Clauses.UseIndexClause.IndexType">
+            <summary>
+                Type of the index to use.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.UseIndexClause.Accept(Remotion.Linq.IQueryModelVisitor,Remotion.Linq.QueryModel,System.Int32)">
+            <summary>
+                Accepts the specified visitor
+            </summary>
+            <param name="visitor">The visitor to accept.</param>
+            <param name="queryModel">The query model in whose context this clause is visited.</param>
+            <param name="index">
+                The index of this clause in the <paramref name="queryModel" />'s
+                <see cref="P:Remotion.Linq.QueryModel.BodyClauses" /> collection.
+            </param>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.UseIndexClause.TransformExpressions(System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+                Transforms all the expressions in this clause and its child objects via the given
+                <paramref name="transformation" /> delegate.
+            </summary>
+            <param name="transformation">
+                The transformation object. This delegate is called for each <see cref="T:System.Linq.Expressions.Expression" /> within this
+                clause, and those expressions will be replaced with what the delegate returns.
+            </param>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.UseIndexClause.Clone(Remotion.Linq.Clauses.CloneContext)">
+            <summary>
+                Clones this clause.
+            </summary>
+            <param name="cloneContext">The clones of all query source clauses are registered with this <see cref="T:Remotion.Linq.Clauses.CloneContext" />.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.UseKeysClause.#ctor(System.Linq.Expressions.Expression)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Couchbase.Linq.Clauses.UseKeysClause" /> class.
+            </summary>
+            <param name="keys">Expression used to get the keys from each item in the outer sequence</param>
+        </member>
+        <member name="P:Couchbase.Linq.Clauses.UseKeysClause.Keys">
+            <summary>
+                Gets the expression used to get the keys being selected
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.UseKeysClause.Accept(Remotion.Linq.IQueryModelVisitor,Remotion.Linq.QueryModel,System.Int32)">
+            <summary>
+                Accepts the specified visitor
+            </summary>
+            <param name="visitor">The visitor to accept.</param>
+            <param name="queryModel">The query model in whose context this clause is visited.</param>
+            <param name="index">
+                The index of this clause in the <paramref name="queryModel" />'s
+                <see cref="P:Remotion.Linq.QueryModel.BodyClauses" /> collection.
+            </param>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.UseKeysClause.TransformExpressions(System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+                Transforms all the expressions in this clause and its child objects via the given
+                <paramref name="transformation" /> delegate.
+            </summary>
+            <param name="transformation">
+                The transformation object. This delegate is called for each <see cref="T:System.Linq.Expressions.Expression" /> within this
+                clause, and those expressions will be replaced with what the delegate returns.
+            </param>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.UseKeysClause.Clone(Remotion.Linq.Clauses.CloneContext)">
+            <summary>
+                Clones this clause.
+            </summary>
+            <param name="cloneContext">The clones of all query source clauses are registered with this <see cref="T:Remotion.Linq.Clauses.CloneContext" />.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.NestClause.#ctor(System.String,System.Type,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Boolean)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Couchbase.Linq.Clauses.NestClause" /> class.
+            </summary>
+            <param name="itemName">Name of the item returned by the nest clause</param>
+            <param name="itemType">Type of the item returned by the nest clause</param>
+            <param name="inner">The inner sequence being nested</param>
+            <param name="keySelector">Expression used to get the keys from each item in the outer sequence</param>
+            <param name="isLeftOuterNest">If true, indicates this is a LEFT OUTER NEST.  If false, this is an INNER NEST.</param>
+        </member>
+        <member name="P:Couchbase.Linq.Clauses.NestClause.InnerSequence">
+            <summary>
+                Gets the inner sequence being nested
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Clauses.NestClause.KeySelector">
+            <summary>
+                Gets the expression used to get the keys from each item in the outer sequence
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.NestClause.Accept(Remotion.Linq.IQueryModelVisitor,Remotion.Linq.QueryModel,System.Int32)">
+            <summary>
+                Accepts the specified visitor
+            </summary>
+            <param name="visitor">The visitor to accept.</param>
+            <param name="queryModel">The query model in whose context this clause is visited.</param>
+            <param name="index">
+                The index of this clause in the <paramref name="queryModel" />'s
+                <see cref="P:Remotion.Linq.QueryModel.BodyClauses" /> collection.
+            </param>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.NestClause.TransformExpressions(System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+                Transforms all the expressions in this clause and its child objects via the given
+                <paramref name="transformation" /> delegate.
+            </summary>
+            <param name="transformation">
+                The transformation object. This delegate is called for each <see cref="T:System.Linq.Expressions.Expression" /> within this
+                clause, and those expressions will be replaced with what the delegate returns.
+            </param>
+        </member>
+        <member name="M:Couchbase.Linq.Clauses.NestClause.Clone(Remotion.Linq.Clauses.CloneContext)">
+            <summary>
+                Clones this clause.
+            </summary>
+            <param name="cloneContext">The clones of all query source clauses are registered with this <see cref="T:Remotion.Linq.Clauses.CloneContext" />.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Couchbase.Linq.IChangeTrackableContext">
+            <summary>
+            Provides an interface for supporting persistence of documents via proxies when change tracking is enabled.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.IChangeTrackableContext.Track``1(``0)">
+            <summary>
+            Adds a document to the list of tracked documents if change tracking is enabled.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the document to track.</typeparam>
+            <param name="document">The object representing the document.</param>
+        </member>
+        <member name="M:Couchbase.Linq.IChangeTrackableContext.Untrack``1(``0)">
+            <summary>
+            Removes a document from the list if tracked documents.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="document"></param>
+        </member>
+        <member name="M:Couchbase.Linq.IChangeTrackableContext.Modified``1(``0)">
+            <summary>
+            Adds a document to the list of modified documents if it is has been mutated and is being tracked.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="document"></param>
+        </member>
+        <member name="P:Couchbase.Linq.IChangeTrackableContext.ModifiedCount">
+            <summary>
+            The count of documents that have been modified if change tracking is enabled.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.IChangeTrackableContext.TrackedCount">
+            <summary>
+            The count of all documents currently being tracked.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.BucketContext">
+            <summary>
+            Provides a single point of entry to a Couchbase bucket which makes it easier to compose
+            and execute queries and to group togather changes which will be submitted back into the bucket.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.BucketContext.ChangeTrackingEnabled">
+            <summary>
+            If true, generate change tracking proxies for documents during deserialization.  Defaults to false for higher performance queries.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.#ctor(Couchbase.Core.IBucket)">
+            <summary>
+            Creates a new BucketContext for a given Couchbase bucket.
+            </summary>
+            <param name="bucket">Bucket referenced by the new BucketContext.</param>
+        </member>
+        <member name="P:Couchbase.Linq.BucketContext.Configuration">
+            <summary>
+            Gets the configuration for the current <see cref="T:Couchbase.Cluster" />.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.Query``1">
+            <summary>
+            Queries the current <see cref="T:Couchbase.Core.IBucket" /> for entities of type T. This is the target of
+            a LINQ query and requires that the associated JSON document have a type property that is the same as T.
+            </summary>
+            <typeparam name="T">An entity or POCO representing the object graph of a JSON document.</typeparam>
+            <returns><see cref="T:System.Linq.IQueryable`1" /> which can be used to query the bucket.</returns>
+        </member>
+        <member name="P:Couchbase.Linq.BucketContext.BucketName">
+            <summary>
+            Gets the name of the <see cref="T:Couchbase.Core.IBucket"/>.
+            </summary>
+            <value>
+            The name of the bucket.
+            </value>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.Save``1(``0)">
+            <summary>
+            Saves the specified document to a Couchbase server cluster. If change tracking is enabled via <see cref="M:Couchbase.Linq.BucketContext.BeginChangeTracking"/>
+            then the document will be added to the modified list and then saved when <see cref="M:Couchbase.Linq.BucketContext.SubmitChanges"/> is called.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the document being saved.</typeparam>
+            <param name="document">The document.</param>
+            <exception cref="T:Couchbase.Linq.KeyAttributeMissingException">The document id could not be found.</exception>
+            <exception cref="T:System.Reflection.AmbiguousMatchException">More than one of the requested attributes was found.</exception>
+            <exception cref="T:System.TypeLoadException">A custom attribute type cannot be loaded.</exception>
+            <exception cref="T:Couchbase.Linq.CouchbaseWriteException">An exception wrapping the <see cref="T:Couchbase.IOperationResult"/> interface. Use this to determine what failed.</exception>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.Remove``1(``0)">
+            Removes a document from a Couchbase server cluster. If change tracking is enabled, the document will be flagged for deletion
+            and deleted when <see cref="M:Couchbase.Linq.BucketContext.SubmitChanges"/> is called on the current <see cref="T:Couchbase.Linq.BucketContext"/>.
+            <exception cref="T:Couchbase.Linq.KeyAttributeMissingException">The document id could not be found.</exception>
+            <exception cref="T:System.Reflection.AmbiguousMatchException">More than one of the requested attributes was found. </exception>
+            <exception cref="T:System.TypeLoadException">A custom attribute type cannot be loaded. </exception>
+            <exception cref="T:Couchbase.Linq.CouchbaseWriteException">An exception wrapping the <see cref="T:Couchbase.IOperationResult"/> interface. Use this to determine what failed.</exception>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.GetDocumentId``1(``0)">
+            <summary>
+            Gets the document identifier. Assumes that at least one property on the document has a
+            <see cref="T:System.ComponentModel.DataAnnotations.KeyAttribute"/> which defines the unique indentifier field for the document.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="document">The document.</param>
+            <returns></returns>
+            <exception cref="T:Couchbase.Linq.KeyAttributeMissingException">The document document key could not be found.</exception>
+            <exception cref="T:System.Reflection.AmbiguousMatchException">More than one of the requested attributes was found.</exception>
+            <exception cref="T:System.TypeLoadException">A custom attribute type cannot be loaded.</exception>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.BeginChangeTracking">
+            <summary>
+            Begins change tracking for the current request. To complete and save the changes call <see cref="M:Couchbase.Linq.BucketContext.SubmitChanges" />.
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.EndChangeTracking">
+            <summary>
+            Ends change tracking on the current <see cref="T:Couchbase.Linq.BucketContext"/> removing any changed docments from the tracked list.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.SubmitChanges">
+            <summary>
+            Submits any changes to documents that have been modified if change tracking is enabled via a call to <see cref="M:Couchbase.Linq.BucketContext.BeginChangeTracking"/>.
+            Internally a counter is kept so that if n threads call <see cref="M:Couchbase.Linq.BucketContext.BeginChangeTracking"/>, then n threads must call <see cref="M:Couchbase.Linq.BucketContext.SubmitChanges"/>.
+            After submit changes is called, the modified list will be cleared.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.Couchbase#Linq#IChangeTrackableContext#Track``1(``0)">
+            <summary>
+            Adds a document to the list of tracked documents if change tracking is enabled.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the document to track.</typeparam>
+            <param name="document">The object representing the document.</param>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.Couchbase#Linq#IChangeTrackableContext#Untrack``1(``0)">
+            <summary>
+            Removes a document from the list if tracked documents.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="document"></param>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.Couchbase#Linq#IChangeTrackableContext#Modified``1(``0)">
+            <summary>
+            Adds a document to the list of modified documents if it is has been mutated and is being tracked.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="document"></param>
+        </member>
+        <member name="P:Couchbase.Linq.BucketContext.ModifiedCount">
+            <summary>
+            The count of documents that have been modified if change tracking is enabled.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.BucketContext.TrackedCount">
+            <summary>
+            The count of all documents currently being tracked.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.Couchbase#Linq#Proxies#ITrackedDocumentNodeCallback#DocumentModified(Couchbase.Linq.Proxies.ITrackedDocumentNode)">
+            <summary>
+            Handles documents that have been mutated when change tracking is enabled and adds them to the modified list.
+            </summary>
+            <param name="mutatedDocument"></param>
+        </member>
+        <member name="P:Couchbase.Linq.BucketContext.MutationState">
+            <summary>
+            The current <see cref="T:Couchbase.N1QL.MutationState"/>.  May return null if there
+            have been no mutations.
+            </summary>
+            <remarks>
+            This value is updated as mutations are applied via <see cref="M:Couchbase.Linq.BucketContext.Save``1(``0)"/>.  It may be used
+            to enable read-your-own-write by passing the value to <see cref="M:Couchbase.Linq.Extensions.QueryExtensions.ConsistentWith``1(System.Linq.IQueryable{``0},Couchbase.N1QL.MutationState)"/>.
+            If you are using change tracking, this value won't be valid until after a call to <see cref="M:Couchbase.Linq.BucketContext.SubmitChanges"/>.
+            This function is only supported on Couchbase Server 4.5 or later.
+            </remarks>
+        </member>
+        <member name="M:Couchbase.Linq.BucketContext.ResetMutationState">
+            <summary>
+            Resets the <see cref="P:Couchbase.Linq.BucketContext.MutationState"/> to start a new set of mutations.
+            </summary>
+            <remarks>
+            If you are using an <see cref="T:Couchbase.Linq.BucketContext"/> over and extended period of time,
+            performing a reset regularly is recommend.  This will help keep the size of the
+            <see cref="P:Couchbase.Linq.BucketContext.MutationState"/> to a minimum.
+            </remarks>
+        </member>
+        <member name="T:Couchbase.Linq.BucketContext.TempDocument">
+            <summary>
+            Provides a temporary, faked IDocument to return a Token for adding to MutationState
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.CouchbaseQueryException">
+            <summary>
+            Thrown if an error occurs during the execution of a LINQ N1QL query.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.CouchbaseQueryException.Errors">
+            <summary>
+            Errors returned by the Couchbase Server, if any.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.CouchbaseWriteException">
+            <summary>
+            Thrown if a write operation fails - use the InnerException, Message and ResponseStatus properties to determine what went wrong.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.CouchbaseWriteException.#ctor(Couchbase.IOperationResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.Linq.CouchbaseWriteException"/> class.
+            </summary>
+            <param name="failedResult">The <see cref="T:Couchbase.IOperationResult"/> of the failed operation.</param>
+        </member>
+        <member name="P:Couchbase.Linq.CouchbaseWriteException.ResponseStatus">
+            <summary>
+            Gets the failure <see cref="P:Couchbase.Linq.CouchbaseWriteException.ResponseStatus"/>.
+            </summary>
+            <value>
+            The response status.
+            </value>
+        </member>
+        <member name="T:Couchbase.Linq.DocumentNotFoundException">
+            <summary>
+            Thrown if a given key cannot be found in the bucket.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.DocumentNotFoundException.#ctor(System.String)">
+            <summary>
+            Creates a new DocumentNotFoundException.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="T:Couchbase.Linq.Extensions.EnumerableExtensions">
+            <summary>
+            Extensions to <see cref="T:System.Collections.Generic.IEnumerable`1"/> which emulate query extensions in <see cref="T:Couchbase.Linq.Extensions.QueryExtensions"/>.
+            This helps to provide support for unit tests against a fake <see cref="T:Couchbase.Linq.BucketContext"/>.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.EnumerableExtensions.Nest``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,System.Collections.Generic.IEnumerable{System.String}},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``2})">
+            <summary>
+                Emulates Nest for N1QL against an IEnumerable
+            </summary>
+            <typeparam name="TOuter">Type of the source sequence</typeparam>
+            <typeparam name="TInner">Type of the inner sequence being nested</typeparam>
+            <typeparam name="TResult">Type of the result sequence</typeparam>
+            <param name="outer"></param>
+            <param name="inner">Sequence to be nested</param>
+            <param name="keySelector">Expression to get the list of keys to nest for an item in the source sequence.  Should return a list of strings.</param>
+            <param name="resultSelector">Expression that returns the result</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.EnumerableExtensions.LeftOuterNest``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,System.Collections.Generic.IEnumerable{System.String}},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``2})">
+            <summary>
+                Emulates LeftNest for N1QL against an IEnumerable
+            </summary>
+            <typeparam name="TOuter">Type of the source sequence</typeparam>
+            <typeparam name="TInner">Type of the inner sequence being nested</typeparam>
+            <typeparam name="TResult">Type of the result sequence</typeparam>
+            <param name="outer"></param>
+            <param name="inner">Sequence to be nested</param>
+            <param name="keySelector">Expression to get the list of keys to nest for an item in the source sequence.  Should return a list of strings.</param>
+            <param name="resultSelector">Expression that returns the result</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.EnumerableExtensions.Nest``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,System.Collections.Generic.IEnumerable{System.String}},System.Func{``0,System.Collections.Generic.IEnumerable{``1},``2},System.Boolean)">
+            <summary>
+                Emulates Nest for N1QL against an IEnumerable
+            </summary>
+            <typeparam name="TOuter">Type of the source sequence</typeparam>
+            <typeparam name="TInner">Type of the inner sequence being nested</typeparam>
+            <typeparam name="TResult">Type of the result sequence</typeparam>
+            <param name="outer"></param>
+            <param name="inner">Sequence to be nested</param>
+            <param name="keySelector">Expression to get the list of keys to nest for an item in the source sequence.  Should return a list of strings.</param>
+            <param name="resultSelector">Expression that returns the result</param>
+            <param name="innerNest">Excludes results where no matches are found in the inner sequence</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.EnumerableExtensions.UseKeys``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                Emulates UseKeys for N1QL against an IEnumerable
+            </summary>
+            <typeparam name="T">Type of the source sequence</typeparam>
+            <param name="items">Items being filtered</param>
+            <param name="keys">Keys to be selected</param>
+            <returns></returns>
+        </member>
+        <member name="T:Couchbase.Linq.Extensions.QueryExtensions">
+            <summary>
+            Extentions to <see cref="T:System.Linq.IQueryable`1" /> for use in queries against a <see cref="T:Couchbase.Linq.BucketContext"/>.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.Nest``3(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{System.String}}},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1},``2}})">
+            <summary>
+                Nest for N1QL. (outer.Nest(inner, keySelector, resultSelector) translates to NEST inner ON KEYS outer.keySelector)
+            </summary>
+            <typeparam name="TOuter">Type of the source sequence</typeparam>
+            <typeparam name="TInner">Type of the inner sequence being nested</typeparam>
+            <typeparam name="TResult">Type of the result sequence</typeparam>
+            <param name="outer"></param>
+            <param name="inner">Sequence to be nested</param>
+            <param name="keySelector">Expression to get the list of keys to nest for an item in the source sequence.  Should return a list of strings.</param>
+            <param name="resultSelector">Expression that returns the result</param>
+            <remarks>Returns a result for values in the outer sequence only if matching values in the inner sequence are found</remarks>
+            <returns>Modified IQueryable</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.LeftOuterNest``3(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{``1},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{System.String}}},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1},``2}})">
+            <summary>
+                Nest for N1QL. (outer.LeftNest(inner, keySelector, resultSelector) translates to LEFT OUTER NEST inner ON KEYS outer.keySelector)
+            </summary>
+            <typeparam name="TOuter">Type of the source sequence</typeparam>
+            <typeparam name="TInner">Type of the inner sequence being nested</typeparam>
+            <typeparam name="TResult">Type of the result sequence</typeparam>
+            <param name="outer"></param>
+            <param name="inner">Sequence to be nested</param>
+            <param name="keySelector">Expression to get the list of keys to nest for an item in the source sequence.  Should return a list of strings.</param>
+            <param name="resultSelector">Expression that returns the result</param>
+            <remarks>Returns a result for all values in the outer sequence</remarks>
+            <returns>Modified IQueryable</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.UseKeys``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                Filters documents based on a list of keys
+            </summary>
+            <typeparam name="T">Type of the items being filtered</typeparam>
+            <param name="items">Items being filtered</param>
+            <param name="keys">Keys to be selected</param>
+            <returns>Modified IQueryable</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.Explain``1(System.Linq.IQueryable{``0})">
+            <summary>
+            The EXPLAIN statement is used before any N1QL statement to obtain information about how the statement operates.
+            </summary>
+            <typeparam name="T">The target type.</typeparam>
+            <param name="source">The source.</param>
+            <returns>Explanation of the query</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.UseIndex``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            Provides an index hint to the query engine.
+            </summary>
+            <typeparam name="T">Type of items being queried.</typeparam>
+            <param name="source">Items being queried.</param>
+            <param name="indexName">Name of the index to use.</param>
+            <returns>Modified IQueryable</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.UseIndex``1(System.Linq.IQueryable{``0},System.String,Couchbase.Linq.N1QlIndexType)">
+            <summary>
+            Provides an index hint to the query engine.
+            </summary>
+            <typeparam name="T">Type of items being queried.</typeparam>
+            <param name="source">Items being queried.</param>
+            <param name="indexName">Name of the index to use.</param>
+            <param name="indexType">Type of the index to use.</param>
+            <returns>Modified IQueryable</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.ExecuteAsync``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Execute a Couchbase query asynchronously.
+            </summary>
+            <typeparam name="T">Type being queried.</typeparam>
+            <param name="source">Query to execute asynchronously.  Must be a Couchbase LINQ query.</param>
+            <returns>Task which contains the query result when completed.</returns>
+            <example>
+            var results = await query.ExecuteAsync();
+            </example>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.ExecuteAsync``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{System.Linq.IQueryable{``0},``1}})">
+            <summary>
+            Execute a Couchbase query asynchronously.
+            </summary>
+            <typeparam name="T">Type being queried.</typeparam>
+            <typeparam name="TResult">Type returned by <paramref name="additionalExpression"/>.</typeparam>
+            <param name="source">Query to execute asynchronously.  Must be a Couchbase LINQ query.</param>
+            <param name="additionalExpression">Additional expressions to apply to the query before executing.  Typically used for aggregates.</param>
+            <returns>Task which contains the query result when completed.</returns>
+            <remarks>
+            <para>The expression contained in <paramref name="additionalExpression"/> is applied to the query before
+            it is executed asynchrounously.  Typically, this would be used to apply an aggregate, First, Single,
+            or other operation to the query that normall  triggers immediate query execution.  Passing these actions
+            in <paramref name="additionalExpression"/> delays their execution so that they can be handled asynchronously.</para>
+            <para><paramref name="additionalExpression"/> must return a scalar value or a single object.  It should not return another
+            instance of <see cref="T:System.Linq.IQueryable`1"/>.</para>
+            </remarks>
+            <example>
+            var document = await query.ExecuteAsync(query => query.First());
+            </example>
+            <example>
+            var avg = await query.ExecuteAsync(query => query.Average(p => p.Abv));
+            </example>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.ScanConsistency``1(System.Linq.IQueryable{``0},Couchbase.N1QL.ScanConsistency)">
+            <summary>
+            Specifies the consistency guarantee/constraint for index scanning.
+            </summary>
+            <param name="source">Sets scan consistency for this query.  Must be a Couchbase LINQ query.</param>
+            <param name="scanConsistency">Specify the consistency guarantee/constraint for index scanning.</param>
+            <remarks>The default is <see cref="F:Couchbase.N1QL.ScanConsistency.NotBounded"/>.</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.ScanWait``1(System.Linq.IQueryable{``0},System.TimeSpan)">
+            <summary>
+            Specifies the maximum time the client is willing to wait for an index to catch up to the consistency requirement in the request.
+            If an index has to catch up, and the time is exceed doing so, an error is returned.
+            </summary>
+            <param name="source">Sets scan wait for this query.  Must be a Couchbase LINQ query.</param>
+            <param name="scanWait">The maximum time the client is willing to wait for index to catch up to the vector timestamp.</param>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.ConsistentWith``1(System.Linq.IQueryable{``0},Couchbase.N1QL.MutationState)">
+            <summary>
+            Requires that the indexes but up to date with a <see cref="T:Couchbase.N1QL.MutationState"/> before the query is executed.
+            </summary>
+            <param name="source">Sets consistency requirement for this query.  Must be a Couchbase LINQ query.</param>
+            <param name="state"><see cref="T:Couchbase.N1QL.MutationState"/> used for conistency controls.</param>
+            <remarks>If called multiple times, the states from the calls are combined.</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.Extensions.QueryExtensions.CreateQuery``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{System.Linq.IQueryable{``0},``1}})">
+            <summary>
+            An expression generation helper for adding additional methods to a Linq provider.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TR">The type of the return value.</typeparam>
+            <param name="source">The <see cref="T:System.Linq.IQueryable"/> source.</param>
+            <param name="expression">The expression.</param>
+            <remarks>Original work from: https://www.re-motion.org/blogs/mix/2010/10/28/re-linq-extensibility-custom-query-operators.</remarks>
+            <returns></returns>
+        </member>
+        <member name="T:Couchbase.Linq.IBucketContext">
+            <summary>
+            Provides a single point of entry to a Couchbase bucket which makes it easier to compose
+            and execute queries and to group togather changes which will be submitted back into the bucket.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.IBucketContext.Configuration">
+            <summary>
+            Gets the configuration for the current <see cref="T:Couchbase.Cluster"/>.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:Couchbase.Linq.IBucketContext.BeginChangeTracking">
+            <summary>
+            Begins change tracking for the current request. To complete and save the changes call <see cref="M:Couchbase.Linq.IBucketContext.SubmitChanges"/>.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.IBucketContext.EndChangeTracking">
+            <summary>
+            Ends change tracking on the current context.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.IBucketContext.SubmitChanges">
+            <summary>
+            Submits the changes.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.IBucketContext.Query``1">
+            <summary>
+            Queries the current <see cref="T:Couchbase.Core.IBucket" /> for entities of type T. This is the target of
+            a LINQ query and requires that the associated JSON document have a type property that is the same as T.
+            </summary>
+            <typeparam name="T">An entity or POCO representing the object graph of a JSON document.</typeparam>
+            <returns><see cref="T:System.Linq.IQueryable`1" /> which can be used to query the bucket.</returns>
+        </member>
+        <member name="M:Couchbase.Linq.IBucketContext.Save``1(``0)">
+            <summary>
+            Saves the specified document.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="document">The document.</param>
+        </member>
+        <member name="M:Couchbase.Linq.IBucketContext.Remove``1(``0)">
+            <summary>
+            Removes the specified document.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="document">The document.</param>
+        </member>
+        <member name="P:Couchbase.Linq.IBucketContext.ChangeTrackingEnabled">
+            <summary>
+            If true, generate change tracking proxies for documents during deserialization. Defaults to false for higher performance queries.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.IBucketContext.MutationState">
+            <summary>
+            The current <see cref="T:Couchbase.N1QL.MutationState"/>.  May return null if there
+            have been no mutations.
+            </summary>
+            <remarks>
+            This value is updated as mutations are applied via <see cref="M:Couchbase.Linq.IBucketContext.Save``1(``0)"/>.  It may be used
+            to enable read-your-own-write by passing the value to <see cref="M:Couchbase.Linq.Extensions.QueryExtensions.ConsistentWith``1(System.Linq.IQueryable{``0},Couchbase.N1QL.MutationState)"/>.
+            If you are using change tracking, this value won't be valid until after a call to <see cref="M:Couchbase.Linq.IBucketContext.SubmitChanges"/>.
+            This function is only supported on Couchbase Server 4.5 or later.
+            </remarks>
+        </member>
+        <member name="M:Couchbase.Linq.IBucketContext.ResetMutationState">
+            <summary>
+            Resets the <see cref="P:Couchbase.Linq.IBucketContext.MutationState"/> to start a new set of mutations.
+            </summary>
+            <remarks>
+            If you are using an <see cref="T:Couchbase.Linq.IBucketContext"/> over and extended period of time,
+            performing a reset regularly is recommend.  This will help keep the size of the
+            <see cref="P:Couchbase.Linq.IBucketContext.MutationState"/> to a minimum.
+            </remarks>
+        </member>
+        <member name="T:Couchbase.Linq.Execution.IBucketQueryExecutor">
+            <summary>
+            Extends <see cref="T:Remotion.Linq.IQueryExecutor"/> with routines to execute a <see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/> asynchronously.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Execution.IBucketQueryExecutor.ScanConsistency">
+            <summary>
+            Specifies the consistency guarantee/constraint for index scanning.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Execution.IBucketQueryExecutor.ScanWait">
+            <summary>
+            Specifies the maximum time the client is willing to wait for an index to catch up to the consistency requirement in the request.
+            If an index has to catch up, and the time is exceed doing so, an error is returned.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.IBucketQueryExecutor.ConsistentWith(Couchbase.N1QL.MutationState)">
+            <summary>
+            Requires that the indexes but up to date with a <see cref="T:Couchbase.N1QL.MutationState"/> before the query is executed.
+            </summary>
+            <param name="state"><see cref="T:Couchbase.N1QL.MutationState"/> used for conistency controls.</param>
+            <remarks>If called multiple times, the states from the calls are combined.</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.IBucketQueryExecutor.ExecuteCollectionAsync``1(Couchbase.Linq.QueryGeneration.LinqQueryRequest)">
+            <summary>
+            Asynchronously execute a <see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/>.
+            </summary>
+            <typeparam name="T">Type returned by the query.</typeparam>
+            <param name="queryRequest">Request to execute.</param>
+            <returns>Task which contains a list of objects returned by the request when complete.</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.IBucketQueryExecutor.ExecuteSingleAsync``1(Couchbase.Linq.QueryGeneration.LinqQueryRequest)">
+            <summary>
+            Asynchronously execute a <see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/> that returns a single result.
+            </summary>
+            <typeparam name="T">Type returned by the query.</typeparam>
+            <param name="queryRequest">Request to execute.</param>
+            <returns>Task which contains the object returned by the request when complete.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Execution.IBucketQueryExecutorProvider">
+            <summary>
+            Provides access to an <see cref="T:Couchbase.Linq.Execution.IBucketQueryExecutor"/>.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Execution.IBucketQueryExecutorProvider.BucketQueryExecutor">
+            <summary>
+            Get the <see cref="T:Couchbase.Linq.Execution.IBucketQueryExecutor"/>.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Execution.BucketQueryExecutor.EnableProxyGeneration">
+            <summary>
+            If true, generate change tracking proxies for documents during deserialization.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Execution.BucketQueryExecutor.ScanConsistency">
+            <summary>
+            Specifies the consistency guarantee/constraint for index scanning.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Execution.BucketQueryExecutor.ScanWait">
+            <summary>
+            Specifies the maximum time the client is willing to wait for an index to catch up to the consistency requirement in the request.
+            If an index has to catch up, and the time is exceed doing so, an error is returned.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.BucketQueryExecutor.#ctor(Couchbase.Core.IBucket,Couchbase.Configuration.Client.ClientConfiguration,Couchbase.Linq.IBucketContext)">
+            <summary>
+            Creates a new BucketQueryExecutor.
+            </summary>
+            <param name="bucket"><see cref="T:Couchbase.Core.IBucket"/> to query.</param>
+            <param name="configuration"><see cref="T:Couchbase.Configuration.Client.ClientConfiguration"/> used during the query.</param>
+            <param name="bucketContext">The context object for tracking and managing changes to documents.</param>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.BucketQueryExecutor.ConsistentWith(Couchbase.N1QL.MutationState)">
+            <summary>
+            Requires that the indexes but up to date with a <see cref="T:Couchbase.N1QL.MutationState"/> before the query is executed.
+            </summary>
+            <param name="state"><see cref="T:Couchbase.N1QL.MutationState"/> used for conistency controls.</param>
+            <remarks>If called multiple times, the states from the calls are combined.</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.BucketQueryExecutor.ShouldGenerateProxies``1(Remotion.Linq.QueryModel)">
+            <summary>
+            Determines if proxies should be generated, based on the given query model and return type.
+            </summary>
+            <typeparam name="T">Return type expected for query rows.</typeparam>
+            <param name="queryModel">Query model.</param>
+            <returns>Returns true if proxies should be generated, based on the given query model and return type.</returns>
+            <remarks>
+            Queries with select projections don't need change tracking, because there is no original source document to be
+            updated if their properties are changed.  So only create proxies if the rows being returned by the query are
+            plain instances of the document type being queried, without select projections.
+            </remarks>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.BucketQueryExecutor.ExecuteCollection``1(Couchbase.Linq.QueryGeneration.LinqQueryRequest)">
+            <summary>
+            Execute a <see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/>.
+            </summary>
+            <typeparam name="T">Type returned by the query.</typeparam>
+            <param name="queryRequest">Request to execute.</param>
+            <returns>List of objects returned by the request.</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.BucketQueryExecutor.ExecuteCollectionAsync``1(Couchbase.Linq.QueryGeneration.LinqQueryRequest)">
+            <summary>
+            Asynchronously execute a <see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/>.
+            </summary>
+            <typeparam name="T">Type returned by the query.</typeparam>
+            <param name="queryRequest">Request to execute.</param>
+            <returns>Task which contains a list of objects returned by the request when complete.</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.BucketQueryExecutor.ParseResult``1(Couchbase.N1QL.IQueryResult{``0})">
+            <summary>
+            Parses a <see cref="T:Couchbase.N1QL.IQueryResult`1"/>, returning the result rows.
+            If there are any errors, throws exceptions instead.
+            </summary>
+            <typeparam name="T">Result type.</typeparam>
+            <param name="result">Result to parse.</param>
+            <returns>Rows in the result.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Execution.ScalarResultBehavior">
+            <summary>
+            Defines the behaviors related to scalar results, which must typically be extracted
+            from an attribute named "result".  This typically applies to aggregate operations, as well as
+            <see cref="M:System.Linq.Queryable.Any``1(System.Linq.IQueryable{``0})"/> and <see cref="M:System.Linq.Queryable.All``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})"/> operations.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Execution.ScalarResultBehavior.ResultExtractionRequired">
+            <summary>
+            If true, indicates that result extraction is required.  The query should be executed with a return type
+            of <see cref="T:Couchbase.Linq.Execution.ScalarResult`1"/>, and then passed through <see cref="M:Couchbase.Linq.Execution.ScalarResultBehavior.ApplyResultExtraction``1(System.Collections.Generic.IEnumerable{Couchbase.Linq.Execution.ScalarResult{``0}})"/>.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Execution.ScalarResultBehavior.NoRowsResult">
+            <summary>
+            If NoRowsResult is not null, and if no rows are returned, then a single row with this value is returned instead.
+            This is used to return the expected results for <see cref="M:System.Linq.Queryable.Any``1(System.Linq.IQueryable{``0})"/> and
+            <see cref="M:System.Linq.Queryable.All``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})"/> operations.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Execution.ScalarResultBehavior.ApplyResultExtraction``1(System.Collections.Generic.IEnumerable{Couchbase.Linq.Execution.ScalarResult{``0}})">
+            <summary>
+            Applies result extraction to a collection of <see cref="T:Couchbase.Linq.Execution.ScalarResult`1"/>.
+            </summary>
+            <typeparam name="T">Result type being extracted.</typeparam>
+            <param name="source">Collection of <see cref="T:Couchbase.Linq.Execution.ScalarResult`1"/>.</param>
+            <returns>Collection of <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Execution.ScalarResult`1">
+            <summary>
+            Used to extract the result row from an Any, All, or aggregate operation.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.KeyAttributeMissingException">
+            <summary>
+            Thrown if an identifier property can be found in a document. The identifier maps
+            to the primary key for the document in couchbase.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.KeyAttributeMissingException.#ctor(System.String)">
+            <summary>
+            Creates a new KeyAttributeMissingException.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="T:Couchbase.Linq.N1QlIndexType">
+            <summary>
+            Types of indices supported by N1QL query <see cref="M:Couchbase.Linq.Extensions.QueryExtensions.UseIndex``1(System.Linq.IQueryable{``0},System.String,Couchbase.Linq.N1QlIndexType)"/>.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlIndexType.Gsi">
+            <summary>
+            Global secondary index
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlIndexType.View">
+            <summary>
+            View index
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.N1QlDatePart">
+            <summary>
+            Represents date parts for calls to date related <see cref="T:Couchbase.Linq.N1QlFunctions"/>.
+            </summary>
+            <remarks>
+            Different date related functions are compatible with different date parts.
+            For details, see the N1QL documentation.
+            </remarks>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Millennium">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Century">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Decade">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Year">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Quarter">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Month">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Week">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Day">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Hour">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Minute">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Second">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.Millisecond">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.DayOfYear">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.DayOfWeek">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.IsoWeek">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.IsoYear">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.IsoDayOfWeek">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.TimeZone">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.TimeZoneOffsetHour">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.N1QlDatePart.TimeZoneOffsetMinute">
+            <summary>
+            See N1QL documentation.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.N1QlFunctions">
+            <summary>
+            Implements static helper methods for N1QL queries
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.NotSupportedError">
+            <summary>
+            Shortcut for creating an error for methods that are only supported in N1QL, not in .Net.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.DateAdd(System.DateTime,System.Int64,Couchbase.Linq.N1QlDatePart)">
+            <summary>
+            Adds an interval to a date/time, where the unit of interval is part.
+            </summary>
+            <param name="date">Date/time on which to perform arithmetic.</param>
+            <param name="interval">Interval to add to date.</param>
+            <param name="part">Unit of the interval being added to date.</param>
+            <returns>New date/time</returns>
+            <remarks>Only valid for use in N1QL queries.</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.DateDiff(System.DateTime,System.DateTime,Couchbase.Linq.N1QlDatePart)">
+            <summary>
+            Returns the elapsed time between date/times as an integer whose unit is part.
+            </summary>
+            <param name="date1">Starting date/time for difference.</param>
+            <param name="date2">Ending date/time for difference.</param>
+            <param name="part">Unit of the interval to return.</param>
+            <returns>Difference between date1 and date2 in part units.  Result is positive if date1 is later than date2.</returns>
+            <remarks>Only valid for use in N1QL queries.</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.DatePart(System.DateTime,Couchbase.Linq.N1QlDatePart)">
+            <summary>
+            Returns the date part as an integer.
+            </summary>
+            <param name="date">Date/time to extract the part of</param>
+            <param name="part">Part to extract.</param>
+            <returns>Portion of the date/time, based on part.</returns>
+            <remarks>Only valid for use in N1QL queries.</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.DateTrunc(System.DateTime,Couchbase.Linq.N1QlDatePart)">
+            <summary>
+            Truncates the given date/time so that the given date part is the least significant.
+            </summary>
+            <param name="date">Date/time to be truncated.</param>
+            <param name="part">Part to be the least significant.</param>
+            <returns>Truncated date/time.</returns>
+            <remarks>Only valid for use in N1QL queries.</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.Meta(System.Object)">
+            <summary>
+            Returns metadata for a document object
+            </summary>
+            <param name="document">Document to get metadata from</param>
+            <returns>Metadata about the document</returns>
+            <remarks>Should only be called against a top-level document in Couchbase</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.Key(System.Object)">
+            <summary>
+            Returns the key for a document object
+            </summary>
+            <param name="document">Document to get key from</param>
+            <returns>Key of the document</returns>
+            <remarks>Should only be called against a top-level document in Couchbase</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.IsMissing``1(``0)">
+            <summary>
+            Returns true if the selected property is missing from the document
+            </summary>
+            <typeparam name="T">Type of the property being selected</typeparam>
+            <param name="property">Property to test</param>
+            <returns>True if the property is missing from the document</returns>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.IsMissing``1(``0,System.String)">
+            <summary>
+            Returns true if the named property is missing from the document
+            </summary>
+            <typeparam name="T">Type of the document being tested</typeparam>
+            <param name="document">Document being tested</param>
+            <param name="propertyName">Property name to test</param>
+            <returns>True if the property is missing from the document</returns>
+            <remarks>propertyName must be a constant when used in a LINQ expression</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.IsNotMissing``1(``0)">
+            <summary>
+            Returns true if the selected property is present on the document
+            </summary>
+            <typeparam name="T">Type of the property being selected</typeparam>
+            <param name="property">Property to test</param>
+            <returns>True if the property is present on the document</returns>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.IsNotMissing``1(``0,System.String)">
+            <summary>
+            Returns true if the named property is present on the document
+            </summary>
+            <typeparam name="T">Type of the document being tested</typeparam>
+            <param name="document">Document being tested</param>
+            <param name="propertyName">Property name to test</param>
+            <returns>True if the property is present on the document</returns>
+            <remarks>propertyName must be a constant when used in a LINQ expression</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.IsValued``1(``0)">
+            <summary>
+            Returns true if the selected property is present on the document and not null
+            </summary>
+            <typeparam name="T">Type of the property being selected</typeparam>
+            <param name="property">Property to test</param>
+            <returns>True if the property is present on the document and not null</returns>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.IsValued``1(``0,System.String)">
+            <summary>
+            Returns true if the named property is not missing from the document and not null
+            </summary>
+            <typeparam name="T">Type of the document being tested</typeparam>
+            <param name="document">Document being tested</param>
+            <param name="propertyName">Property name to test</param>
+            <returns>True if the property is present on the document and not null</returns>
+            <remarks>propertyName must be a constant when used in a LINQ expression</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.IsNotValued``1(``0)">
+            <summary>
+            Returns true if the selected property is missing from the document or null
+            </summary>
+            <typeparam name="T">Type of the property being selected</typeparam>
+            <param name="property">Property to test</param>
+            <returns>True if the property is missing from the document or null</returns>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctions.IsNotValued``1(``0,System.String)">
+            <summary>
+            Returns true if the named property is missing from the document or null
+            </summary>
+            <typeparam name="T">Type of the document being tested</typeparam>
+            <param name="document">Document being tested</param>
+            <param name="propertyName">Property name to test</param>
+            <returns>True if the property is missing from the document or null</returns>
+            <remarks>propertyName must be a constant when used in a LINQ expression</remarks>
+        </member>
+        <member name="T:Couchbase.Linq.Operators.LinqQueryRequestDataInfo">
+            <summary>
+            Implementation of <see cref="T:Remotion.Linq.Clauses.StreamedData.IStreamedDataInfo"/> for a query where <see cref="T:Couchbase.Linq.Operators.ToQueryRequestResultOperator"/>
+            was applied.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Operators.LinqQueryRequestDataInfo.ReturnDefaultWhenEmpty">
+            <summary>
+            For queries returning a single result, true indicates that an empty result set should return the default value.
+            For example, a call to .FirstOrDefault() would set this to true.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Operators.LinqQueryRequestValue">
+            <summary>
+            Implementation of <see cref="T:Remotion.Linq.Clauses.StreamedData.IStreamedData"/> for a query where <see cref="T:Couchbase.Linq.Operators.ToQueryRequestResultOperator"/>
+            was applied.  Value will be a <see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/>.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Operators.ToQueryRequestExpressionNode">
+            <summary>
+            Expression parser for LinqQueryRequest.ToQueryRequest method.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Operators.ToQueryRequestResultOperator">
+            <summary>
+            When present on a query model, indicates that the raw query string should be returned in a
+            <see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/>.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Operators.ExplainExpressionNode">
+            <summary>
+            Expression parser for N1QL "Explain" method.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Proxies.DocumentCollection`1">
+            <summary>
+            Represents a collection that is also an <see cref="T:Couchbase.Linq.Proxies.ITrackedDocumentNode"/> node.  It keeps a dirty status, and monitors
+            all child nodes which also implement ITrackedDocumentNode for modifications.
+            </summary>
+            <typeparam name="T">Type of object in the collection</typeparam>
+        </member>
+        <member name="T:Couchbase.Linq.Proxies.DocumentNode">
+            <summary>
+            Represents the status of a node in a document.  Also keeps a collection of child nodes which are monitored for changes.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.Proxies.DocumentNode._childDocuments">
+            <summary>
+            Keep a list of all child documents so that we can recurse down through the tree.
+            Value of the dictionary is a reference count, in case the same document is beneath two properties.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.Proxies.DocumentNode._callbacks">
+            <summary>
+            List of callbacks to bubble dirty status back up the tree
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentNode.RegisterChangeTracking(Couchbase.Linq.Proxies.ITrackedDocumentNodeCallback)">
+            <summary>
+            Register a callback to be triggered when this document is modified
+            </summary>
+            <param name="callback">Callback to be triggered</param>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentNode.UnregisterChangeTracking(Couchbase.Linq.Proxies.ITrackedDocumentNodeCallback)">
+            <summary>
+            Unregister a callback so it will no longer be called when this document is modified
+            </summary>
+            <param name="callback">Callback to unregister</param>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentNode.TriggerCallbacks">
+            <summary>
+            Trigger any callbacks to inform them that this document has been modified
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentNode.ClearStatus">
+            <summary>
+            Clears IsDeserializing and IsDirty on this document and all child documents.
+            Does nothing if IsDeserialization is already false to prevent accidental infinite recursion.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentNode.DocumentModified(Couchbase.Linq.Proxies.ITrackedDocumentNode)">
+            <summary>
+            Flag this node as modified, and trigger any registered <see cref="T:Couchbase.Linq.Proxies.ITrackedDocumentNodeCallback" /> callbacks.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Proxies.DocumentProxyBuilder">
+            <summary>
+            Overrides <see cref="M:Couchbase.Linq.Proxies.DocumentProxyBuilder.CreateClassProxyType(System.Type,System.Type[],Castle.DynamicProxy.ProxyGenerationOptions)"/> for an existing <see cref="T:Castle.DynamicProxy.IProxyBuilder"/> so that it uses
+            <see cref="T:Couchbase.Linq.Proxies.DocumentProxyGenerator"/> instead of the default <see cref="T:Castle.DynamicProxy.Generators.ClassProxyGenerator"/>.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyBuilder.#ctor">
+            <summary>
+            Creates a DocumentProxyBuilder instance.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyBuilder.#ctor(Castle.DynamicProxy.ModuleScope)">
+            <summary>
+            Creates a DocumentProxyBuilder instance.
+            </summary>
+            <param name="scope"><see cref="P:Couchbase.Linq.Proxies.DocumentProxyBuilder.ModuleScope"/> to use for <see cref="T:Castle.DynamicProxy.DefaultProxyBuilder"/>.</param>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyBuilder.#ctor(Castle.DynamicProxy.IProxyBuilder)">
+            <summary>
+            Creates a DocumentProxyBuilder instance.
+            </summary>
+            <param name="baseProxyBuilder">Base <see cref="T:Castle.DynamicProxy.IProxyBuilder"/> to use for all calls other than <see cref="M:Couchbase.Linq.Proxies.DocumentProxyBuilder.CreateClassProxyType(System.Type,System.Type[],Castle.DynamicProxy.ProxyGenerationOptions)"/>.</param>
+        </member>
+        <member name="T:Couchbase.Linq.Proxies.DocumentProxyGenerator">
+            <summary>
+            Inherited from <see cref="T:Couchbase.Linq.Proxies.DocumentProxyGenerator"/>, this generator applies <see cref="T:System.Runtime.Serialization.IgnoreDataMemberAttribute"/>
+            to the emitted "__interceptors" field.  This prevents it from  being serialized by JSON serializers.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyGenerator.CreateMetadataProperty(Castle.DynamicProxy.Generators.Emitters.ClassEmitter,Castle.DynamicProxy.Generators.Emitters.SimpleAST.FieldReference)">
+            <summary>
+            Creates an intercepted property named __metadata, which only has a setter, which is used to deserialize
+            the document metadata.  Since there is no getter, it won't be serialized back to the data store.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Proxies.DocumentProxyTypeCreator">
+            <summary>
+            Implements an <see cref="T:Couchbase.Core.Serialization.ICustomObjectCreator"/> which creates proxies that implement <see cref="T:Couchbase.Linq.Proxies.ITrackedDocumentNode"/>.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.Proxies.DocumentProxyTypeCreator._collectionTypeCache">
+            <summary>
+            Caches collection types for reuse to prevent excess reflection.
+            Key is the document type, value is the resulting collection type.
+            Null value indicates that the document type is not a proxyable collection.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Proxies.DocumentProxyDataMapper">
+            <summary>
+            Alternate IDataMapper to use for reading N1QL queries which generates document proxies that implement change tracking.
+            Requires that <see cref="P:Couchbase.Configuration.Client.ClientConfiguration.Serializer"/> be an instance of <see cref="T:Couchbase.Core.Serialization.IExtendedTypeSerializer"/>.  The serializer
+            must also support <see cref="P:Couchbase.Core.Serialization.SupportedDeserializationOptions.CustomObjectCreator"/>.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyDataMapper.Map``1(System.IO.Stream)">
+            <summary>
+            Maps a single row.
+            </summary>
+            <typeparam name="T">The type of document to deserialize.</typeparam>
+            <param name="stream">The <see cref="T:System.IO.Stream"/> results of the query.</param>
+            <returns>An object deserialized to it's T type.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Proxies.DocumentProxyGenerationHook">
+            <summary>
+            Hook to control generation of proxies for document objects
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyInterceptor.SetMetadata(Couchbase.Linq.Metadata.DocumentMetadata)">
+            <summary>
+            Used by intercepted __metadata property generated on the proxy.  We use this special
+            setter so that it isn't serialized back to the data store.
+            </summary>
+            <param name="metadata"></param>
+        </member>
+        <member name="T:Couchbase.Linq.Proxies.DocumentProxyManager">
+            <summary>
+            Manages the creation of proxies for document nodes.  These proxies implement <see cref="T:Couchbase.Linq.Proxies.ITrackedDocumentNode"/> for change tracking.
+            Proxies will track changes on any property implemented as virtual.  Any such property which is assigned an
+            object which also implements <see cref="T:Couchbase.Linq.Proxies.ITrackedDocumentNode"/> will have changes tracked if the child
+            node changes.
+            </summary>
+            <remarks>
+            For performance reasons, should be used as a singleton.  This then makes <see cref="T:Castle.DynamicProxy.ProxyGenerator"/> a singleton as well,
+            which means it will cache and reuse the proxy types.  The <see cref="P:Couchbase.Linq.Proxies.DocumentProxyManager.Default"/> property
+            provides a singleton instance with a default <see cref="T:Castle.DynamicProxy.ProxyGenerator"/> for normal use.
+            </remarks>
+        </member>
+        <member name="P:Couchbase.Linq.Proxies.DocumentProxyManager.Default">
+            <summary>
+            Singleton instance of <see cref="T:Couchbase.Linq.Proxies.DocumentProxyManager"/> for use creating document proxies.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Proxies.DocumentProxyManager.ProxyGenerator">
+            <summary>
+            <see cref="T:Castle.DynamicProxy.ProxyGenerator"/> used to create proxies.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyManager.#cctor">
+            <summary>
+            Static constructor
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyManager.#ctor">
+            <summary>
+            Creates a new DocumentProxyManager with a default <see cref="T:Castle.DynamicProxy.ProxyGenerator"/>.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyManager.#ctor(Castle.DynamicProxy.ProxyGenerator)">
+            <summary>
+            Creates a new DocumentProxyManager with a given <see cref="T:Castle.DynamicProxy.ProxyGenerator"/>.
+            </summary>
+            <param name="proxyGenerator"><see cref="T:Castle.DynamicProxy.ProxyGenerator"/> used to create proxies.</param>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.DocumentProxyManager.CreateProxy(System.Type)">
+            <summary>
+            Create a proxy of a document that implements <see cref="T:Couchbase.Linq.Proxies.ITrackedDocumentNode"/> for change tracking.
+            Proxy will track changes on any property implemented as virtual.  Any such property which is assigned an
+            object which also implements <see cref="T:Couchbase.Linq.Proxies.ITrackedDocumentNode"/> will have changes tracked if the child
+            node changes.
+            </summary>
+            <param name="documentType">Type of document to proxy.</param>
+            <returns>New instance of a proxy implementing <see cref="T:Couchbase.Linq.Proxies.ITrackedDocumentNode"/>.</returns>
+        </member>
+        <member name="P:Couchbase.Linq.Proxies.ITrackedDocumentNode.Metadata">
+            <summary>
+            If this is the root node in a document tree, this should contain the document metadata.  Otherwise null.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Proxies.ITrackedDocumentNode.ClearStatus">
+            <summary>
+            Clears IsDeserializing and IsDirty on this document and all child documents.
+            Does nothing if IsDeserialization is already false to prevent accidental infinite recursion.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.Expressions.StringComparisonExpression">
+            <summary>
+            Represents a comparison between two strings
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.ExpressionTransformers.DateTimeComparisonExpressionTransformer">
+            <summary>
+            Converts any DateTime constants or properties to Unix milliseconds before comparing them.
+            This way the <see cref="T:Couchbase.Linq.QueryGeneration.MethodCallTranslators.UnixMillisecondsMethodCallTranslator">UnixMillisecondsMethodCallTranslator</see>
+            will later interpret the calls as STR_TO_MILLIS() calls in N1QL.  N1QL can't directly compare
+            date/time values unless they're converted to Unix milliseconds first.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.ExpressionTransformers.StringComparisonExpressionTransformer">
+            <summary>
+            Recognizes <see cref="M:System.String.Compare(System.String,System.String)"/> method calls, and converts them to
+            <see cref="T:Couchbase.Linq.QueryGeneration.Expressions.StringComparisonExpression"/> expressions.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.ExpressionTransformers.StringComparisonExpressionTransformer.Transform(System.Linq.Expressions.BinaryExpression)">
+            <summary>
+            Converts <see cref="M:System.String.Compare(System.String,System.String)"/> expressions to a
+            <see cref="T:Couchbase.Linq.QueryGeneration.Expressions.StringComparisonExpression"/>, if applicable
+            </summary>
+            <param name="expression">BinaryExpression to test and convert</param>
+            <returns>If not a String.Compare expression, returns the original expression.  Otherwise the converted expression.</returns>
+            <remarks>
+            Converts String.Compare and String.CompareTo clauses where compared to an integer.
+            i.e. String.Compare(x, y) &lt; 0 or x.CompareTo(y) &lt; 0 are both the equivalent of x &lt; y
+            </remarks>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.ExpressionTransformers.StringComparisonExpressionTransformer.ConvertStringCompareExpression(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.ExpressionType,System.Int32)">
+            <summary>
+            Converts String.Compare expression to StringComparisonExpression
+            </summary>
+            <param name="leftString">String expression on the left side of the comparison</param>
+            <param name="rightString">String expression on the right side of the comparison</param>
+            <param name="operation">Comparison operation being performed</param>
+            <param name="number">Number that String.Compare was being compared to, typically 0, 1, or -1.</param>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.ExpressionTransformers.EnumComparisonExpressionTransformer">
+            <summary>
+            Recognizes == and != comparisons between a enumeration property and an enumeration constant.
+            By default, LINQ does this comparison using the base type of the enumeration, converting the
+            enumeration property to the base type and comparing to the raw number.  This converts the
+            comparison to be directly between two values of the enumeration type.  This allows
+            <see cref="T:Couchbase.Linq.QueryGeneration.N1QlExpressionTreeVisitor"/> to handle different serialization approaches for the
+            enumeration constant.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.ExpressionTransformers.MultiKeyExpressionTransfomer">
+            <summary>
+            Transforms references to the Key property of an IGrouping into another expression.
+            Used to convert references to the Key of a GroupBy statement to directly access the properties
+            used to make the key.  This is done after a grouping subquery is flattened into the main N1QL query.
+            The MultiKeyExpressionTransformer variant is used for multipart keys, where accessing members of the Key property.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.ExpressionTransformers.MultiKeyExpressionTransfomer.#ctor(Remotion.Linq.Clauses.Expressions.QuerySourceReferenceExpression,System.Linq.Expressions.NewExpression)">
+            <summary>
+            Creates a new KeyExpressionTransformer
+            </summary>
+            <param name="querySourceReference">QuerySourceReferenceExpression that references an IQuerySource returning an IGrouping</param>
+            <param name="newExpression">NewExpression which was used to create the multipart key for grouping</param>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.ExpressionTransformers.KeyExpressionTransfomer">
+            <summary>
+            Transforms references to the Key property of an IGrouping into another expression.
+            Used to convert references to the Key of a GroupBy statement to directly access the property
+            used to make the key.  This is done after a grouping subquery is flattened into the main N1QL query.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.ExpressionTransformers.KeyExpressionTransfomer.#ctor(Remotion.Linq.Clauses.Expressions.QuerySourceReferenceExpression,System.Linq.Expressions.Expression)">
+            <summary>
+            Creates a new KeyExpressionTransformer
+            </summary>
+            <param name="querySourceReference">QuerySourceReferenceExpression that references an IQuerySource returning an IGrouping</param>
+            <param name="replacementExpression">Expression to replace any reference to the Key property of the IGrouping</param>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest">
+            <summary>
+            Wraps a standard QueryRequest with some additional information used internally.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.LinqQueryRequest.ScalarResultBehavior">
+            <summary>
+            If true, indicates that the result of the query is wrapped in an object with a single property, named "result".
+            After execution, this property should be extracted from the wrapper object.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.LinqQueryRequest.ReturnDefaultWhenEmpty">
+            <summary>
+            For queries returning a single result, true indicates that an empty result set should return the default value.
+            For example, a call to .FirstOrDefault() would set this to true.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.LinqQueryRequest.#ctor(System.String,Couchbase.Linq.Execution.ScalarResultBehavior)">
+            <summary>
+            Creates a new LinqQueryRequest, with the given N1QL query.
+            </summary>
+            <param name="query">N1QL query.</param>
+            <param name="scalarResultBehavior">Behaviors related to extracting results for scalar queries.</param>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.LinqQueryRequest.CreateQueryRequest``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Convert a LINQ query against a Couchbase bucket to a <see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/>.
+            </summary>
+            <typeparam name="T">The target type.</typeparam>
+            <param name="source">The query to be converted.  This must be a query based on a Couchbase bucket.</param>
+            <returns><see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/> containing the N1QL query.</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.LinqQueryRequest.CreateQueryRequest``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{System.Linq.IQueryable{``0},``1}})">
+            <summary>
+            Convert a LINQ query against a Couchbase bucket to a <see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/>.
+            </summary>
+            <typeparam name="T">The target type.</typeparam>
+            <typeparam name="TResult">The type of the result returned by additionalExpresion.</typeparam>
+            <param name="source">The query to be converted.  This must be a query based on a Couchbase bucket.</param>
+            <param name="additionalExpression">Additional expressions to apply to the query before making a LinqQueryRequest.  Typically used for aggregates.</param>
+            <returns><see cref="T:Couchbase.Linq.QueryGeneration.LinqQueryRequest"/> containing the N1QL query.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.MemberNameResolvers.ExtendedTypeSerializerMemberNameResolver">
+            <summary>
+            Implementation of <see cref="T:Couchbase.Linq.QueryGeneration.MemberNameResolvers.IMemberNameResolver"/> which uses an <see cref="T:Couchbase.Core.Serialization.IExtendedTypeSerializer"/>
+            to resolve member names.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.MemberNameResolvers.JsonNetMemberNameResolver">
+            <summary>
+            Implementation of <see cref="T:Couchbase.Linq.QueryGeneration.MemberNameResolvers.IMemberNameResolver"/> which uses a Newtonsoft.Json
+            <see cref="T:Newtonsoft.Json.Serialization.IContractResolver"/> to resolve member names.
+            </summary>
+            <remarks>
+            Used for backwards compatibility with older implementations of <see cref="T:Couchbase.Core.Serialization.ITypeSerializer"/>
+            which don't have a GetMemberName implementation like <see cref="T:Couchbase.Core.Serialization.IExtendedTypeSerializer"/>.
+            </remarks>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.MethodCallTranslators.N1QlFunctionMethodCallTranslator">
+            <summary>
+            Translates calls to static methods decorated with <see cref="T:Couchbase.Linq.N1QlFunctionAttribute" />.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.MethodCallTranslators.N1QlFunctionMethodCallTranslator.#ctor(System.Reflection.MethodInfo,Couchbase.Linq.N1QlFunctionAttribute)">
+            <summary>
+            Creates a new N1QlFunctionMethodCallTranslator for a given method and <see cref="T:Couchbase.Linq.N1QlFunctionAttribute"/>.
+            </summary>
+            <param name="methodInfo">Method call to be translated.  Must be a static method.</param>
+            <param name="attribute"><see cref="T:Couchbase.Linq.N1QlFunctionAttribute"/> that defines the translation.</param>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.MethodCallTranslators.N1QlFunctionMethodCallTranslator.Translate(System.Linq.Expressions.MethodCallExpression,Couchbase.Linq.QueryGeneration.N1QlExpressionTreeVisitor)">
+            <summary>
+            Translate the given method call expression.
+            </summary>
+            <param name="methodCallExpression">Method call to be translated.  Must match the method provided to the constructor.</param>
+            <param name="expressionTreeVisitor"><see cref="T:Couchbase.Linq.QueryGeneration.N1QlExpressionTreeVisitor"/> to use to visit parameters.</param>
+            <returns>Original or altered expression.</returns>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.MethodCallTranslators.MathMethodCallTranslator.SupportedMethodNames">
+            <summary>
+            Maps System.Math method call names to N1QL functions
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.MethodCallTranslators.MathMethodCallTranslator.GetNumericTypes">
+            <summary>
+            Returns all numeric types for parameters of System.Math method overloads
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.MethodCallTranslators.MathMethodCallTranslator.GetMathMethodsForType(System.Type)">
+            <summary>
+            Given a parameter type, get all supported methods on System.Math that accept this parameter type
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.DefaultMethodCallTranslatorProvider">
+            <summary>
+            Provides default method call translator provider for N1QL expressions.
+            Uses classes implementing <see cref="T:Couchbase.Linq.QueryGeneration.IMethodCallTranslator" /> defined in Couchbase.Linq assembly,
+            as well as any method which implements <see cref="T:Couchbase.Linq.N1QlFunctionAttribute" />.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.DefaultMethodCallTranslatorProvider.GetItemFromGenericType(System.Reflection.MethodInfo)">
+            <summary>
+            Checks the generic version of the type that implements the key method to see if it has an IMethodCallTranslator defined
+            </summary>
+            <param name="key">MethodInfo to test</param>
+            <returns>Null if no IMethodCallTranslator is found</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.DefaultMethodCallTranslatorProvider.GetItemFromInterfaces(System.Reflection.MethodInfo)">
+            <summary>
+            Checks all interfaces that implement the key method to see if one of them has an IMethodCallTranslator defined
+            </summary>
+            <param name="key">MethodInfo to test.  Must be an instance method on a class.</param>
+            <returns>Null if no IMethodCallTranslator is found</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.DefaultMethodCallTranslatorProvider.CreateFromN1QlFunctionAttribute(System.Reflection.MethodInfo)">
+            <summary>
+            Checks for <see cref="T:Couchbase.Linq.N1QlFunctionAttribute" /> and creates a new <see cref="T:Couchbase.Linq.QueryGeneration.MethodCallTranslators.N1QlFunctionMethodCallTranslator" />
+            if it is found.  If not found, returns null.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExpressionTreeVisitor.VisitNewObject(System.Collections.Generic.IList{System.Reflection.MemberInfo},System.Collections.Generic.IList{System.Linq.Expressions.Expression})">
+            <summary>
+            Shared logic for NewExpression and MemberInitExpression
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExpressionTreeVisitor.VisitSelectNewExpression(System.Linq.Expressions.Expression)">
+            <summary>
+            Parses the new object that is part of the select expression with "as" based formatting.
+            Can accept either a NewExpression or MemberInitExpression
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExpressionTreeVisitor.VisitCoalesceExpression(System.Linq.Expressions.BinaryExpression)">
+            <summary>
+                Visits a coalese expression recursively, building a IFMISSINGORNULL function
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExpressionTreeVisitor.VisitArrayIndexExpression(System.Linq.Expressions.BinaryExpression)">
+            <summary>
+                Special handling for ArrayIndex binary expressions
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExpressionTreeVisitor.VisitMethodCall(System.Linq.Expressions.MethodCallExpression)">
+            <summary>
+                Tries to translate the Method-call to some N1QL expression. Currently only implemented for "Contains() - LIKE"
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.N1QlExtentNameProvider">
+            <summary>
+            Provides unique names to use in N1QL queries for each IQuerySource extent
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlExtentNameProvider.Prefix">
+            <summary>
+            If non-null, prefixes all extent names.  I.e. If set to "`p`." then `Extent1` becomes `p`.`Extent1`
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExtentNameProvider.GetExtentName(Remotion.Linq.Clauses.IQuerySource)">
+            <summary>
+            Provides the extent name for a given query source
+            </summary>
+            <param name="querySource">IQuerySource for which to get the extent name</param>
+            <returns>The escaped extent name for the N1QL query</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExtentNameProvider.GetExtentNameUnprefixed(Remotion.Linq.Clauses.IQuerySource)">
+            <summary>
+            Provides the extent name for a given query source, before the Prefix is applied
+            </summary>
+            <param name="querySource">IQuerySource for which to get the extent name</param>
+            <returns>The escaped extent name for the N1QL query</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExtentNameProvider.LinkExtents(Remotion.Linq.Clauses.IQuerySource,Remotion.Linq.Clauses.IQuerySource)">
+            <summary>
+            Links two extents together so they share the same name
+            </summary>
+            <param name="primaryExtent">Extent to link to, which may or may not already have a name</param>
+            <param name="secondaryExtent">New extent to share the name of the primaryExtent</param>
+            <returns>
+            Primarily used when handling join clauses that join to subqueries.  This allows the subquery from
+            clause to share the same name as the join clause itself, since they are being merged into a single
+            join clause in the N1QL query output.
+            </returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExtentNameProvider.GetUnlinkedExtentName">
+            <summary>
+            Generates a one-time use extent name, which isn't linked to an IQuerySource
+            </summary>
+            <returns>The escaped extent name for the N1QL query</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlExtentNameProvider.GenerateNewExtentName(Remotion.Linq.Clauses.IQuerySource)">
+            <summary>
+            Change the extent name of a query source to a newly generated name, replacing any previously generated name.
+            </summary>
+            <param name="querySource">IQuerySource for which to get a new extent name</param>
+            <returns>The escaped extent name for the N1QL query</returns>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.N1QlFromQueryPart">
+            <summary>
+            Represents the FROM part of a query
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlFromQueryPart.Source">
+            <summary>
+            Source of the query data, such as a bucket name.  Should already be escaped.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlFromQueryPart.ItemName">
+            <summary>
+            Name of the query data when being referenced in the query ("as" clause).  Should already be escaped.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlFromQueryPart.JoinType">
+            <summary>
+            Type of join to perform
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlFromQueryPart.OnKeys">
+            <summary>
+            For joins, the expression for the key value to join
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlFromQueryPart.IndexJoinExtentName">
+            <summary>
+            For index joins, the name of the extent on the left side of the join.  Should already be escaped.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlFromQueryPart.IsIndexJoin">
+            <summary>
+            If true, indicates that this is an index join where the primary key reference is on the left side instead of the right side.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.N1QlHelpers">
+            <summary>
+            Helpers for N1QL query generation
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlHelpers.EscapeIdentifier(System.String)">
+            <summary>
+                Escapes a N1QL identifier using tick (`) characters
+            </summary>
+            <param name="identifier">The identifier to format</param>
+            <returns>An escaped identifier</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlHelpers.IsValidKeyword(System.String)">
+            <summary>
+            Checks to see if the identifier may be a valid keyword.
+            </summary>
+            <param name="identifier">Identifier to check.</param>
+            <returns>True if the identifier may be a valid keyword.</returns>
+            <remarks>This method doesn't guarantee that they identifier is a currently known N1QL keyword, as this list
+            may change over time.  It merely confirms that it is formatted as a plain string of alphabetic characters which
+            may be a single keyword.  This provides security control against N1QL injection attacks where a single keyword
+            is known to be safe but additional characters could be malicious.</remarks>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.N1QlLetQueryPart">
+            <summary>
+            Represents an item in the LET part of a N1QL query
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlLetQueryPart.ItemName">
+            <summary>
+            Name of the value being assigned
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlLetQueryPart.Value">
+            <summary>
+            Expression assigned to the item name
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.N1QlQueryGenerationContext">
+            <summary>
+            Used to pass query generation context between various classes
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlQueryGenerationContext.GroupingQuerySource">
+            <summary>
+            Stores a reference to the current grouping subquery
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlQueryGenerationContext.SelectDocumentMetadata">
+            <summary>
+            If true, indicates that the document metadata should also be included in the select projection as "__metadata"
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryGenerationContext.CloneForUnion">
+            <summary>
+            Clones this N1QlQueryGenerationContext for use within a union secondary query
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor._isAggregated">
+            <summary>
+            Indicates if an aggregate has been applied, which may change select clause handling
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor._visitStatus">
+            <summary>
+            Tracks special status related to the visiting process, which may alter the behavior as query model
+            clauses are being visited.  For example, .Where clauses are treating as HAVING statements if
+            _visitStatus == AfterGroupSubquery.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor._groupingExpressionTransformerRegistry">
+            <summary>
+            Stores the mappings between expressions outside the group query to the extents inside
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.ScalarResultBehavior">
+            <summary>
+            Provides information about how scalar results should be extracted from the N1QL query result after execution.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.#ctor(Couchbase.Linq.QueryGeneration.N1QlQueryGenerationContext,System.Boolean)">
+            <exception cref="T:System.ArgumentNullException"><paramref name="queryGenerationContext"/> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.VisitQueryModel(Remotion.Linq.QueryModel)">
+            <exception cref="T:System.NotSupportedException">N1QL Requires All Group Joins Have A Matching From Clause Subquery</exception>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.VisitMainFromClause(Remotion.Linq.Clauses.MainFromClause,Remotion.Linq.QueryModel)">
+            <exception cref="T:System.NotSupportedException">N1Ql Bucket Subqueries Require A UseKeys Call</exception>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.GetExtentSelectParameters">
+            <summary>
+            Provide a SELECT clause to returns all extents from the query
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.SelectDocumentMetadataIfRequired(Remotion.Linq.QueryModel)">
+            <summary>
+            Provides the string to append to the SELECT list if we need to select the document metadata.
+            Otherwise returns an empty string.
+            </summary>
+            <param name="queryModel">Query model being visited.  Used to extract the MainFromClause.</param>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.VisitSubQueryFromExpression(Remotion.Linq.Clauses.AdditionalFromClause,Remotion.Linq.Clauses.Expressions.SubQueryExpression)">
+            <summary>
+            Visits an AdditionalFromClause that is executing a subquery
+            </summary>
+            <param name="fromClause">AdditionalFromClause being visited</param>
+            <param name="subQuery">Subquery being executed by the AdditionalFromClause</param>
+            <returns>True if handled</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.VisitSubQuerySourceReferenceExpression(Remotion.Linq.Clauses.AdditionalFromClause,Remotion.Linq.Clauses.Expressions.SubQueryExpression,Remotion.Linq.Clauses.Expressions.QuerySourceReferenceExpression)">
+            <summary>
+            Visit an AdditionalFromClause referencing a previous group join clause
+            </summary>
+            <param name="fromClause">AdditionalFromClause being visited</param>
+            <param name="subQuery">SubQueryExpression being visited</param>
+            <param name="querySourceReference">QuerySourceReferenceExpression that is the MainFromClause of the SubQuery</param>
+            <returns>N1QlFromQueryPart to be added to the QueryPartsAggregator.  JoinType is defaulted to INNER UNNEST.</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.VisitMemberFromExpression(Remotion.Linq.Clauses.AdditionalFromClause,System.Linq.Expressions.MemberExpression)">
+            <summary>
+            Visit an AdditionalFromClause referencing a member
+            </summary>
+            <param name="fromClause">AdditionalFromClause being visited</param>
+            <param name="expression">MemberExpression being referenced</param>
+            <returns>N1QlFromQueryPart to be added to the QueryPartsAggregator.  JoinType is defaulted to INNER UNNEST.</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.ParseJoinClause(Remotion.Linq.Clauses.JoinClause)">
+            <summary>
+            Visits a join against either a constant expression of IBucketQueryable, or a subquery based on an IBucketQueryable
+            </summary>
+            <param name="joinClause">Join clause being visited</param>
+            <returns>N1QlFromQueryPart to be added to the QueryPartsAggregator.  JoinType is defaulted to INNER JOIN.</returns>
+            <remarks>The InnerKeySelector must be selecting the N1QlFunctions.Key of the InnerSequence</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.VisitConstantExpressionJoinClause(Remotion.Linq.Clauses.JoinClause,System.Linq.Expressions.ConstantExpression)">
+            <summary>
+            Visits a join against a constant expression, which must be an IBucketQueryable implementation
+            </summary>
+            <param name="joinClause">Join clause being visited</param>
+            <param name="constantExpression">Constant expression that is the InnerSequence of the JoinClause</param>
+            <returns>N1QlFromQueryPart to be added to the QueryPartsAggregator.  JoinType is defaulted to INNER JOIN.</returns>
+            <remarks>The InnerKeySelector must be selecting the N1QlFunctions.Key of the InnerSequence</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.ParseNestClause(Couchbase.Linq.Clauses.NestClause)">
+            <summary>
+            Visits a nest against either a constant expression of IBucketQueryable, or a subquery based on an IBucketQueryable
+            </summary>
+            <param name="nestClause">Nest clause being visited</param>
+            <returns>N1QlFromQueryPart to be added to the QueryPartsAggregator</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.VisitConstantExpressionNestClause(Couchbase.Linq.Clauses.NestClause,System.Linq.Expressions.ConstantExpression,System.String)">
+            <summary>
+            Visits a nest against a constant expression, which must be an IBucketQueryable implementation
+            </summary>
+            <param name="nestClause">Nest clause being visited</param>
+            <param name="constantExpression">Constant expression that is the InnerSequence of the NestClause</param>
+            <param name="itemName">Name to be used when referencing the data being nested</param>
+            <returns>N1QlFromQueryPart to be added to the QueryPartsAggregator</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.ParseIndexNestJoinClause(Remotion.Linq.Clauses.JoinClause,Remotion.Linq.Clauses.GroupJoinClause)">
+            <summary>
+            Visits an index nest join against either a constant expression of IBucketQueryable, or a subquery based on an IBucketQueryable
+            </summary>
+            <param name="joinClause">Join clause being visited</param>
+            <param name="groupJoinClause">Group join clause being visited</param>
+            <returns>N1QlFromQueryPart to be added to the QueryPartsAggregator.  JoinType is defaulted to NEST.</returns>
+            <remarks>The OuterKeySelector must be selecting the N1QlFunctions.Key of the OuterSequence</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.N1QlQueryModelVisitor.IsKeyMethodCall(System.Linq.Expressions.Expression,Remotion.Linq.Clauses.IQuerySource@)">
+            <summary>
+            Determines if the expression is a valid call to <see cref="M:Couchbase.Linq.N1QlFunctions.Key(System.Object)"/>, with an
+            <see cref="T:Remotion.Linq.Clauses.IQuerySource"/> as the parameter.
+            </summary>
+            <param name="expression">Expression to evaluate.</param>
+            <param name="querySource">Returns the <see cref="T:Remotion.Linq.Clauses.IQuerySource"/> parameter for the call.</param>
+            <returns>True if the call is valid.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.QueryGeneration.N1QlQueryType">
+            <summary>
+            Represents the type of query or subquery being generated
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.Select">
+            <summary>
+            Main SELECT statement
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.Subquery">
+            <summary>
+            Subquery against a bucket
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.Array">
+            <summary>
+            Subquery against an array using the ARRAY keyword
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.ArrayAny">
+            <summary>
+            Any operation performed on a nested array as a subquery
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.MainQueryAny">
+            <summary>
+            Any operation performed on a Couchbase bucket as the main query
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.SubqueryAny">
+            <summary>
+            Any operation performed on a Couchbase bucket as a subquery
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.ArrayAll">
+            <summary>
+            All operation performed on a nested array as a subquery
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.MainQueryAll">
+            <summary>
+            All operation performed on a Couchbase bucket as the main query
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.SubqueryAll">
+            <summary>
+            All operation performed on a Couchbase bucket as a subquery
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.QueryGeneration.N1QlQueryType.Aggregate">
+            <summary>
+            Represents a simple aggregate against a group.  Query returned will be the aggregate function call only.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlUseIndexPart.IndexName">
+            <summary>
+            Name of the index being used, already escaped.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.N1QlUseIndexPart.IndexType">
+            <summary>
+            Type of the index being used.  Should be alphanumeric only.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.PropertyExtractionPart">
+            <summary>
+            For subqueries, stores the name of property to extract to a plain array
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.WrappingFunctions">
+            <summary>
+            For Array subqueries, list of functions to wrap the result
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.AggregateFunction">
+            <summary>
+            For aggregates, wraps the SelectPart with this function call
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.UnionParts">
+            <summary>
+            UNION statements appended to the end of this query
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.QueryType">
+            <summary>
+            Indicates the type of query or subquery being generated
+            </summary>
+            <remarks>
+            Defaults to building a SELECT query
+            </remarks>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.IsBucketSubquery">
+            <summary>
+            Returns true if the QueryType is a bucket-based subquery
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.IsArraySubquery">
+            <summary>
+            Returns true if the QueryType is an array-based subquery
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.AddGroupByPart(System.String)">
+            <summary>
+            Adds an expression to the comma-delimited list of the GROUP BY clause
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.AddHavingPart(System.String)">
+            <summary>
+            Adds an expression to the HAVING clause, ANDed with any other expressions
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.BuildSelectQuery">
+            <summary>
+            Builds a primary select query
+            </summary>
+            <returns>Query string</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.BuildMainAnyAllQuery">
+            <summary>
+            Builds a main query to return an Any or All result
+            </summary>
+            <returns>Query string</returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.BuildArrayQuery">
+            <summary>
+            Build a subquery against a nested array property
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.Linq.QueryGeneration.QueryPartsAggregator.BuildAnyAllQuery">
+            <summary>
+            Builds a subquery using the ANY or EVERY expression to test a nested array
+            </summary>
+            <returns>Query string</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Filters.AttributeDocumentFilterSetGenerator">
+            <summary>
+            Generates an <see cref="T:Couchbase.Linq.Filters.DocumentFilterSet`1">DocumentFilterSet</see> for a particular type, using <see cref="T:Couchbase.Linq.Filters.DocumentFilterAttribute">DocumentFilterAttributes</see>
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.AttributeDocumentFilterSetGenerator.GenerateDocumentFilterSet``1">
+            <summary>
+            Generates an <see cref="T:Couchbase.Linq.Filters.DocumentFilterSet`1">DocumentFilterSet</see> for a particular type, using <see cref="T:Couchbase.Linq.Filters.DocumentFilterAttribute">DocumentFilterAttribute</see>s
+            </summary>
+            <returns>Returns null if there are no filters.  This is to improve efficieny.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Filters.DocumentFilterAttribute">
+            <summary>
+            Abstract base class for attribute-based <see cref="T:Couchbase.Linq.Filters.IDocumentFilter`1">IDocumentFilter</see> implementations
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Filters.DocumentFilterAttribute.Priority">
+            <summary>
+            Priority of this filter compared to other filters against the same type.  Lower priorities execute first.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterAttribute.GetFilter``1">
+            <summary>
+            Returns the <see cref="T:Couchbase.Linq.Filters.IDocumentFilter`1"/> to be applied by this attribute.
+            </summary>
+            <typeparam name="T">Type of the document being filtered.</typeparam>
+            <returns>The <see cref="T:Couchbase.Linq.Filters.IDocumentFilter`1"/> to be applied by this attribute.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Filters.DocumentFilterManager">
+            <summary>
+            Static class to cache and execute <see cref="T:Couchbase.Linq.Filters.IDocumentFilter`1">IDocumentFilter</see> objects based on the type being queried
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.Filters.DocumentFilterManager.Filters">
+            <summary>
+            Stores currently loaded filters.
+            </summary>
+            <remarks>
+            Any type which has no filters will be in the dictionary, with a value of null.  This will prevent another attempt
+            to generate the default <see cref="T:Couchbase.Linq.Filters.DocumentFilterSet`1">DocumentFilterSet</see> each time it is requested.
+            </remarks>
+        </member>
+        <member name="P:Couchbase.Linq.Filters.DocumentFilterManager.FilterSetGenerator">
+            <summary>
+            Generates the <see cref="T:Couchbase.Linq.Filters.DocumentFilterSet`1">DocumentFilterSet</see> for a type if no filters have been previously loaded
+            </summary>
+            <remarks>By default, uses an <see cref="T:Couchbase.Linq.Filters.AttributeDocumentFilterSetGenerator">AttributeDocumentFeatureSetGenerator</see></remarks>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterManager.GetFilterSet``1">
+            <summary>
+            Returns the filter set for a type, creating a new filters set using the <see cref="P:Couchbase.Linq.Filters.DocumentFilterManager.FilterSetGenerator">FilterSetGenerator</see> if there is no key in the Filters dictionary.
+            </summary>
+            <returns>Returns null if there are no filters defined for this type</returns>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterManager.SetFilter``1(Couchbase.Linq.Filters.IDocumentFilter{``0})">
+            <summary>
+            Add or change filter, replacing the entire filter set if present
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterManager.SetFilterSet``1(Couchbase.Linq.Filters.DocumentFilterSet{``0})">
+            <summary>
+            Add or change a filter set
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterManager.RemoveFilterSet``1">
+            <summary>
+            Remove a filter set.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterManager.Clear">
+            <summary>
+            Clear all filter sets.
+            </summary>
+            <remarks>Will cause future requests to be regenerated using the <see cref="P:Couchbase.Linq.Filters.DocumentFilterManager.FilterSetGenerator">FilterSetGenerator</see>.</remarks>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterManager.ApplyFilters``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Apply filters to a LINQ query
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Filters.DocumentFilterSet`1">
+            <summary>
+            Stores a list of <see cref="T:Couchbase.Linq.Filters.IDocumentFilter`1">IDocumentFilter</see>s, sorted by Priority
+            </summary>
+            <remarks>
+            Sort order of IDocumentFilters with the same Priority is undefined
+            </remarks>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterSet`1.#ctor">
+            <summary>
+            Create an empty DocumentFilterSet
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterSet`1.#ctor(System.Collections.Generic.IEnumerable{Couchbase.Linq.Filters.IDocumentFilter{`0}})">
+            <summary>
+            Create an DocumentFilterSet, filled with a set of filters
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterSet`1.#ctor(Couchbase.Linq.Filters.IDocumentFilter{`0}[])">
+            <summary>
+            Create an DocumentFilterSet, filled with a set of filters
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentFilterSet`1.ApplyFilters(System.Linq.IQueryable{`0})">
+            <summary>
+            Apply the filters to a LINQ query, in order
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Filters.IDocumentFilter`1">
+            <summary>
+            Filter designed to be applied to a LINQ query automatically
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Filters.IDocumentFilter`1.Priority">
+            <summary>
+            Priority of this filter compared to other filters against the same type.  Lower priorities execute first.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.IDocumentFilter`1.ApplyFilter(System.Linq.IQueryable{`0})">
+            <summary>
+            Apply the filter to a LINQ query
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Filters.DocumentTypeFilterAttribute">
+            <summary>
+            When using Linq2Couchbase, automatically filter returned documents by the "type" attribute
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Filters.DocumentTypeFilterAttribute.Type">
+            <summary>
+            Filter the results to include documents with this string as the "type" attribute
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentTypeFilterAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new DocumentTypeFilterAttribute
+            </summary>
+            <param name="type">Filter the results to include documents with this string as the "type" attribute</param>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.DocumentTypeFilterAttribute.GetFilter``1">
+            <summary>
+            Apply the filter to a LINQ query
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Filters.IDocumentFilterSetGenerator">
+            <summary>
+            Generates an <see cref="T:Couchbase.Linq.Filters.DocumentFilterSet`1">DocumentFilterSet</see> for a particular type.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Filters.IDocumentFilterSetGenerator.GenerateDocumentFilterSet``1">
+            <summary>
+            Generates an <see cref="T:Couchbase.Linq.Filters.DocumentFilterSet`1">DocumentFilterSet</see> for a particular type.
+            </summary>
+            <returns>Returns null if there are no filters.  This is to improve efficieny.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.IBucketQueryable">
+            <summary>
+            IQueryable sourced from a Couchbase bucket.  Used to provide the bucket name to the query generator.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.IBucketQueryable.BucketName">
+            <summary>
+            Bucket query is run against
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.IBucketQueryable`1">
+            <summary>
+            IQueryable sourced from a Couchbase bucket.  Used to provide the bucket name to the query generator.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Metadata.IDocumentMetadataProvider">
+            <summary>
+            Returns metadata about the document object the interface is attached to
+            </summary>
+            <remarks>
+            Used by a unit test to fake the results of a META operation in a Linq2Couchbase query
+            </remarks>
+            <seealso cref="M:Couchbase.Linq.N1QlFunctions.Meta(System.Object)" />
+        </member>
+        <member name="M:Couchbase.Linq.Metadata.IDocumentMetadataProvider.GetMetadata">
+            <summary>
+            Get metadata about this document
+            </summary>
+            <returns>Metadata about this document</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Metadata.DocumentMetadata">
+            <summary>
+            Metadata about a document in Couchbase
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Metadata.DocumentMetadata.Cas">
+            <summary>
+            "Compare and swap" value.  This value changes each time the document is mutated.
+            This can be used to ensure that the document has not been modified
+            during a mutation, which enforces optimistic concurrency.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Metadata.DocumentMetadata.Flags">
+            <summary>
+            SDK specific flags.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Metadata.DocumentMetadata.Id">
+            <summary>
+            Document's unique ID.  Also referred to as the document key.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Metadata.DocumentMetadata.Type">
+            <summary>
+            Information about the type of the document.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Metadata.DocumentMetadata.ToString">
+            <summary>
+            Returns the JSON string representation of this object.
+            </summary>
+            <returns>JSON string representation of this object.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.BucketQueryable`1">
+            <summary>
+            The main entry point and executor of the query.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Couchbase.Linq.BucketQueryable`1.BucketName">
+            <summary>
+            Bucket query is run against
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.BucketQueryable`1.BucketQueryExecutor">
+            <summary>
+            Get the <see cref="T:Couchbase.Linq.Execution.IBucketQueryExecutor"/>.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.BucketQueryable`1.#ctor(Couchbase.Core.IBucket,Remotion.Linq.Parsing.Structure.IQueryParser,Couchbase.Linq.Execution.IBucketQueryExecutor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.Linq.BucketQueryable`1"/> class.
+            </summary>
+            <param name="bucket">The bucket.</param>
+            <param name="queryParser">The query parser.</param>
+            <param name="executor">The executor.</param>
+            <exception cref="T:System.ArgumentNullException">bucket</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="bucket" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:Couchbase.Linq.BucketQueryable`1.#ctor(System.Linq.IQueryProvider,System.Linq.Expressions.Expression)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.Linq.BucketQueryable`1"/> class.
+            </summary>
+            <remarks>Used to build new expressions as more methods are applied to the query.</remarks>
+            <param name="provider">The provider.</param>
+            <param name="expression">The expression.</param>
+        </member>
+        <member name="M:Couchbase.Linq.BucketQueryable`1.#ctor(Couchbase.Core.IBucket,Couchbase.Configuration.Client.ClientConfiguration,Couchbase.Linq.IBucketContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.Linq.BucketQueryable`1"/> class.
+            </summary>
+            <param name="bucket">The bucket.</param>
+            <param name="configuration">The configuration.</param>
+            <param name="bucketContext">The context object for tracking and managing changes to documents.</param>
+            <exception cref="T:System.ArgumentNullException">bucket</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="bucket" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="T:Couchbase.Linq.N1QlFunctionAttribute">
+            <summary>
+            Decorates a method that is converted to a N1QL function call.  Each parameter in .Net
+            is expected to correspond directly to a parameter in N1QL, in the same order.
+            </summary>
+            <remarks>
+            Should only be used to decorate static methods.
+            </remarks>
+        </member>
+        <member name="P:Couchbase.Linq.N1QlFunctionAttribute.N1QlFunctionName">
+            <summary>
+            Name of the function in N1QL.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.N1QlFunctionAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new N1QlFunctionAttribute.
+            </summary>
+            <param name="n1QlFunctionName">Name of the function in N1QL.</param>
+        </member>
+        <member name="T:Couchbase.Linq.UnixMillisecondsDateTime">
+            <summary>
+            Used internally during query generation to represent a DateTime in unix milliseconds format.
+            This class is not instantiated or used, it only exists in Expression trees.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Versioning.DefaultVersionProvider">
+            <summary>
+            Provides the version for a bucket based on the implementationVersion returned by calls
+            to http://node-ip:8091/pools.  Caches the results for quick results on future calls.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Versioning.DefaultVersionProvider.GetVersion(Couchbase.Core.IBucket)">
+            <summary>
+            Gets the version of the cluster hosting a bucket, using the cluster's
+            <see cref="T:Couchbase.Configuration.Client.ClientConfiguration"/>.
+            </summary>
+            <param name="bucket">Couchbase bucket.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="bucket"/> is null.</exception>
+            <returns>The version of the cluster hosting this bucket, or 4.0.0 if unable to determine the version.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Versioning.FeatureVersions">
+            <summary>
+            Constants for the Couchbase versions where new features are implemented.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.Versioning.FeatureVersions.IndexJoin">
+            <summary>
+            Version where support was added for index-based joins where the primary key for the join
+            is on the left instead of the right.
+            </summary>
+        </member>
+        <member name="F:Couchbase.Linq.Versioning.FeatureVersions.ReadYourOwnWrite">
+            <summary>
+            Version where support was added for RYOW consistency.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Linq.Versioning.IVersionProvider">
+            <summary>
+            Provides the Couchbase version for a bucket.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Linq.Versioning.IVersionProvider.GetVersion(Couchbase.Core.IBucket)">
+            <summary>
+            Gets the version of the cluster hosting a bucket, using the cluster's
+            <see cref="T:Couchbase.Configuration.Client.ClientConfiguration"/>.
+            </summary>
+            <param name="bucket">Couchbase bucket.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="bucket"/> is null.</exception>
+            <returns>The version of the cluster hosting this bucket, or 4.0.0 if unable to determine the version.</returns>
+        </member>
+        <member name="T:Couchbase.Linq.Versioning.VersionProvider">
+            <summary>
+            Singleton for the <see cref="T:Couchbase.Linq.Versioning.IVersionProvider"/> implementation in use for query generation.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Linq.Versioning.VersionProvider.Current">
+            <summary>
+            Singleton for the <see cref="T:Couchbase.Linq.Versioning.IVersionProvider"/> implementation in use for query generation.
+            </summary>
+        </member>
+    </members>
+</doc>
