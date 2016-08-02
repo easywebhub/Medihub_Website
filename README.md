@@ -3,6 +3,7 @@
 ### Website Medihub sẽ có các phần sau:
  + Back-end API + Web Front:  MVC5 deploy trên server Windows 2012 @thinnv cập nhật IP nghe
  + Web AdminCP:  Aurelia  deploy trên server Centos 7: 104.238.153.126  
+ + Ưu tiên thiết lập Push to Deploy trên Windows và cả Linux
  
 ### Web Front sử dụng lại toàn bộ html, css cũng như data model trong phần Prototype
  + https://github.com/easywebhub/medihub
